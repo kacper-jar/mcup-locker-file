@@ -2,11 +2,6 @@
     "servers": {
         "vanilla": [
             {
-                "version": "1.2.1",
-                "url": "https://assets.minecraft.net/1_2/minecraft_server.jar",
-                "supports_plugins": false
-            },
-            {
                 "version": "1.2.5",
                 "url": "https://piston-data.mojang.com/v1/objects/d8321edc9470e56b8ad5c67bbd16beba25843336/server.jar",
                 "supports_plugins": false
