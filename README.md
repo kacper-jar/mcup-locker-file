@@ -2,7 +2,6 @@
 Locker file containing Minecraft servers with their download links for mcup
 
 # Sources
-
 | Server Software                                            | Source                  |
 |------------------------------------------------------------|-------------------------|
 | [Vanilla](https://www.minecraft.net/en-us/download/server) | piston-data.mojang.com  |
