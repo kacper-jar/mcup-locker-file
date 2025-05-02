@@ -1387,19 +1387,7 @@
                 "supports_plugins": true,
                 "supports_mods": false,
                 "3rd_party_warning": false,
-                 "configs": [
-                    "bukkit",
-                    "spigot"
-                ]
-            },
-            {
-                "version": "1.11.1",
-                "source": "BUILDTOOLS",
-                "target": "spigot",
-                "supports_plugins": true,
-                "supports_mods": false,
-                "3rd_party_warning": false,
-                 "configs": [
+                "configs": [
                     "bukkit",
                     "spigot"
                 ]
