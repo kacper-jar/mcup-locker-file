@@ -774,6 +774,24 @@
                 "supports_mods": false,
                 "3rd_party_warning": false,
                 "configs": []
+            },
+            {
+                "version": "1.21.6",
+                "source": "DOWNLOAD",
+                "url": "https://piston-data.mojang.com/v1/objects/6e64dcabba3c01a7271b4fa6bd898483b794c59b/server.jar",
+                "supports_plugins": false,
+                "supports_mods": false,
+                "3rd_party_warning": false,
+                "configs": []
+            },
+            {
+                "version": "1.21.7",
+                "source": "DOWNLOAD",
+                "url": "https://piston-data.mojang.com/v1/objects/05e4b48fbc01f0385adb74bcff9751d34552486c/server.jar",
+                "supports_plugins": false,
+                "supports_mods": false,
+                "3rd_party_warning": false,
+                "configs": []
             }
         ],
         "bukkit": [
