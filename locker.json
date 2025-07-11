@@ -2460,6 +2460,34 @@
                     "paper-global",
                     "paper-world-defaults"
                 ]
+            },
+            {
+                "version": "1.21.6",
+                "source": "DOWNLOAD",
+                "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.6/builds/48/downloads/paper-1.21.6-48.jar",
+                "supports_plugins": true,
+                "supports_mods": false,
+                "3rd_party_warning": false,
+                "configs": [
+                    "bukkit",
+                    "spigot",
+                    "paper-global",
+                    "paper-world-defaults"
+                ]
+            },
+            {
+                "version": "1.21.7",
+                "source": "DOWNLOAD",
+                "url": "https://api.papermc.io/v2/projects/paper/versions/1.21.7/builds/18/downloads/paper-1.21.7-18.jar",
+                "supports_plugins": true,
+                "supports_mods": false,
+                "3rd_party_warning": false,
+                "configs": [
+                    "bukkit",
+                    "spigot",
+                    "paper-global",
+                    "paper-world-defaults"
+                ]
             }
         ]
     }
