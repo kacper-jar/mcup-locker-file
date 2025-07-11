@@ -1311,6 +1311,28 @@
                 "configs": [
                     "bukkit"
                 ]
+            },
+            {
+                "version": "1.21.6",
+                "source": "BUILDTOOLS",
+                "target": "craftbukkit",
+                "supports_plugins": true,
+                "supports_mods": false,
+                "3rd_party_warning": false,
+                "configs": [
+                    "bukkit"
+                ]
+            },
+            {
+                "version": "1.21.7",
+                "source": "BUILDTOOLS",
+                "target": "craftbukkit",
+                "supports_plugins": true,
+                "supports_mods": false,
+                "3rd_party_warning": false,
+                "configs": [
+                    "bukkit"
+                ]
             }
         ],
         "spigot": [
