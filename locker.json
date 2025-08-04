@@ -806,16 +806,16 @@
         "bukkit": [
             {
                 "version": "1.8",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.8"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -834,16 +834,16 @@
             },
             {
                 "version": "1.8.3",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.8.3"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -862,16 +862,16 @@
             },
             {
                 "version": "1.8.8",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.8.8"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -890,16 +890,16 @@
             },
             {
                 "version": "1.9",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.9"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -918,16 +918,16 @@
             },
             {
                 "version": "1.9.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.9.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -946,16 +946,16 @@
             },
             {
                 "version": "1.9.4",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.9.4"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -974,16 +974,16 @@
             },
             {
                 "version": "1.10.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.10.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1002,16 +1002,16 @@
             },
             {
                 "version": "1.11",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.11"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1030,16 +1030,16 @@
             },
             {
                 "version": "1.11.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.11.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1058,16 +1058,16 @@
             },
             {
                 "version": "1.11.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.11.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1086,16 +1086,16 @@
             },
             {
                 "version": "1.12",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.12"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1114,16 +1114,16 @@
             },
             {
                 "version": "1.12.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.12.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1142,16 +1142,16 @@
             },
             {
                 "version": "1.12.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.12.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1170,16 +1170,16 @@
             },
             {
                 "version": "1.13",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.13"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1198,16 +1198,16 @@
             },
             {
                 "version": "1.13.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.13.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1226,16 +1226,16 @@
             },
             {
                 "version": "1.13.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.13.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1254,16 +1254,16 @@
             },
             {
                 "version": "1.14",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.14"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1282,16 +1282,16 @@
             },
             {
                 "version": "1.14.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.14.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1310,16 +1310,16 @@
             },
             {
                 "version": "1.14.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.14.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1338,16 +1338,16 @@
             },
             {
                 "version": "1.14.3",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.14.3"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1366,16 +1366,16 @@
             },
             {
                 "version": "1.14.4",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.14.4"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1394,16 +1394,16 @@
             },
             {
                 "version": "1.15",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.15"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1422,16 +1422,16 @@
             },
             {
                 "version": "1.15.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.15.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1450,16 +1450,16 @@
             },
             {
                 "version": "1.15.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.15.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1478,16 +1478,16 @@
             },
             {
                 "version": "1.16.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.16.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1506,16 +1506,16 @@
             },
             {
                 "version": "1.16.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.16.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1534,16 +1534,16 @@
             },
             {
                 "version": "1.16.3",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-               "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.16.3"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1562,16 +1562,16 @@
             },
             {
                 "version": "1.16.4",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.16.4"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1590,16 +1590,16 @@
             },
             {
                 "version": "1.16.5",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.16.5"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1618,16 +1618,16 @@
             },
             {
                 "version": "1.17",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.17"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1646,16 +1646,16 @@
             },
             {
                 "version": "1.17.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.17.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1674,16 +1674,16 @@
             },
             {
                 "version": "1.18",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.18"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1702,16 +1702,16 @@
             },
             {
                 "version": "1.18.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.18.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1730,16 +1730,16 @@
             },
             {
                 "version": "1.18.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.18.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1758,16 +1758,16 @@
             },
             {
                 "version": "1.19",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.19"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1786,16 +1786,16 @@
             },
             {
                 "version": "1.19.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.19.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1814,16 +1814,16 @@
             },
             {
                 "version": "1.19.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.19.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1842,16 +1842,16 @@
             },
             {
                 "version": "1.19.3",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.19.3"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1870,16 +1870,16 @@
             },
             {
                 "version": "1.19.4",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.19.4"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1898,16 +1898,16 @@
             },
             {
                 "version": "1.20.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.20.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1926,16 +1926,16 @@
             },
             {
                 "version": "1.20.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.20.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1954,16 +1954,16 @@
             },
             {
                 "version": "1.20.4",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.20.4"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -1982,16 +1982,16 @@
             },
             {
                 "version": "1.20.6",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.20.6"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2010,16 +2010,16 @@
             },
             {
                 "version": "1.21.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.21.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2038,16 +2038,16 @@
             },
             {
                 "version": "1.21.3",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.21.3"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2066,16 +2066,16 @@
             },
             {
                 "version": "1.21.4",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.21.4"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2094,16 +2094,16 @@
             },
             {
                 "version": "1.21.5",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.21.5"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2122,16 +2122,16 @@
             },
             {
                 "version": "1.21.6",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.21.6"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2150,16 +2150,16 @@
             },
             {
                 "version": "1.21.7",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.21.7"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2178,16 +2178,16 @@
             },
             {
                 "version": "1.21.8",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "craftbukkit",
                     "--rev",
-                    "1.21.8"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2208,16 +2208,16 @@
         "spigot": [
             {
                 "version": "1.8",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.8"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2237,16 +2237,16 @@
             },
             {
                 "version": "1.8.3",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.8.3"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2266,16 +2266,16 @@
             },
             {
                 "version": "1.8.8",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.8.8"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2295,16 +2295,16 @@
             },
             {
                 "version": "1.9",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.9"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2324,16 +2324,16 @@
             },
             {
                 "version": "1.9.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.9.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2353,16 +2353,16 @@
             },
             {
                 "version": "1.9.4",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.9.4"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2382,16 +2382,16 @@
             },
             {
                 "version": "1.10.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.10.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2411,16 +2411,16 @@
             },
             {
                 "version": "1.11",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.11"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2440,16 +2440,16 @@
             },
             {
                 "version": "1.11.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.11.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2469,16 +2469,16 @@
             },
             {
                 "version": "1.12",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.12"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2498,16 +2498,16 @@
             },
             {
                 "version": "1.12.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.12.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2527,16 +2527,16 @@
             },
             {
                 "version": "1.12.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.12.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2556,16 +2556,16 @@
             },
             {
                 "version": "1.13",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.13"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2585,16 +2585,16 @@
             },
             {
                 "version": "1.13.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.13.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2614,16 +2614,16 @@
             },
             {
                 "version": "1.13.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.13.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2643,16 +2643,16 @@
             },
             {
                 "version": "1.14",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.14"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2672,16 +2672,16 @@
             },
             {
                 "version": "1.14.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.14.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2701,16 +2701,16 @@
             },
             {
                 "version": "1.14.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.14.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2730,16 +2730,16 @@
             },
             {
                 "version": "1.14.3",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.14.3"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2759,16 +2759,16 @@
             },
             {
                 "version": "1.14.4",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.14.4"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2788,16 +2788,16 @@
             },
             {
                 "version": "1.15",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.15"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2817,16 +2817,16 @@
             },
             {
                 "version": "1.15.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.15.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2846,16 +2846,16 @@
             },
             {
                 "version": "1.15.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.15.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2875,16 +2875,16 @@
             },
             {
                 "version": "1.16.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.16.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2904,16 +2904,16 @@
             },
             {
                 "version": "1.16.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.16.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2933,16 +2933,16 @@
             },
             {
                 "version": "1.16.3",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.16.3"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2962,16 +2962,16 @@
             },
             {
                 "version": "1.16.4",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.16.4"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -2991,16 +2991,16 @@
             },
             {
                 "version": "1.16.5",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.16.5"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3020,16 +3020,16 @@
             },
             {
                 "version": "1.17",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.17"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3049,16 +3049,16 @@
             },
             {
                 "version": "1.17.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.17.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3078,16 +3078,16 @@
             },
             {
                 "version": "1.18",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.18"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3107,16 +3107,16 @@
             },
             {
                 "version": "1.18.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.18.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3136,16 +3136,16 @@
             },
             {
                 "version": "1.18.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.18.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3165,16 +3165,16 @@
             },
             {
                 "version": "1.19",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.19"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3194,16 +3194,16 @@
             },
             {
                 "version": "1.19.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.19.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3223,16 +3223,16 @@
             },
             {
                 "version": "1.19.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.19.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3252,16 +3252,16 @@
             },
             {
                 "version": "1.19.3",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.19.3"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3281,16 +3281,16 @@
             },
             {
                 "version": "1.19.4",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.19.4"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3310,16 +3310,16 @@
             },
             {
                 "version": "1.20.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.20.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3339,16 +3339,16 @@
             },
             {
                 "version": "1.20.2",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.20.2"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3368,16 +3368,16 @@
             },
             {
                 "version": "1.20.4",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.20.4"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3397,16 +3397,16 @@
             },
             {
                 "version": "1.20.6",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.20.6"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3426,16 +3426,16 @@
             },
             {
                 "version": "1.21.1",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.21.1"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3455,16 +3455,16 @@
             },
             {
                 "version": "1.21.3",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.21.3"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3484,16 +3484,16 @@
             },
             {
                 "version": "1.21.4",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.21.4"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3513,16 +3513,16 @@
             },
             {
                 "version": "1.21.5",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.21.5"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3542,16 +3542,16 @@
             },
             {
                 "version": "1.21.6",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.21.6"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3571,16 +3571,16 @@
             },
             {
                 "version": "1.21.7",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.21.7"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
@@ -3600,16 +3600,16 @@
             },
             {
                 "version": "1.21.8",
-                "source": "BUILDTOOLS",
-                "buildtools_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
-                "buildtools_args": [
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
                     "java",
                     "-jar",
                     "$file_path",
                     "--compile",
                     "spigot",
                     "--rev",
-                    "1.21.8"
+                    "$version"
                 ],
                 "supports_plugins": true,
                 "supports_mods": false,
