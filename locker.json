@@ -5060,6 +5060,764 @@
                     "fabric-installer-1.1.0.jar"
                 ]
             }
+        ],
+        "quilt": [
+            {
+                "version": "1.18.2",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.14.4",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.15",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.15.1",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.15.2",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.16",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.16.1",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.16.2",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.16.3",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.16.4",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.16.5",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.17",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.17.1",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.18",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.18.1",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.19",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.19.1",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.19.2",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.19.3",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.19.4",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.20",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.20.1",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.20.2",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.20.3",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.20.4",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.20.5",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.20.6",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.21",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.21.1",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.21.2",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.21.3",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.21.4",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.21.5",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.21.6",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.21.7",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            },
+            {
+                "version": "1.21.8",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.12.1/quilt-installer-0.12.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "$file_path",
+                    "install",
+                    "server",
+                    "$version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.12.1.jar"
+                ]
+            }
         ]
     }
 }
