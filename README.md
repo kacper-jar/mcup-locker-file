@@ -11,3 +11,4 @@ Locker file containing Minecraft servers with their download links for mcup
 | [Fabric](https://fabricmc.net/)                            | Fabric Installer         |
 | [Quilt](https://quiltmc.org)                               | Quilt Installer          |
 | [Forge](https://minecraftforge.net)                        | maven.minecraftforge.net |
+| [NeoForge](https://neoforged.net)                          | maven.neoforged.net      |
