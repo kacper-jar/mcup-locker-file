@@ -65,7 +65,7 @@ class VersionChecker:
 
         if is_new:
             self.locker_data['servers'][server_type].append(entry)
-            commit_msg = f"New {server_type.capitalize()} {version}"
+            commit_msg = f"locker: New {server_type.capitalize()} {version}"
             pr_title = f"New {server_type.capitalize()} {version}"
             pr_label = "release"
             pr_body = f"""## New Version Available
@@ -93,7 +93,7 @@ class VersionChecker:
                     self.locker_data['servers'][server_type][i] = entry
                     break
 
-            commit_msg = f"Update {server_type.capitalize()} {version}"
+            commit_msg = f"locker: Update {server_type.capitalize()} {version}"
             pr_title = f"Update {server_type.capitalize()} {version}"
             pr_label = "update"
             pr_body = f"""## Version Update
