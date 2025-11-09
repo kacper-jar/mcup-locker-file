@@ -85,7 +85,7 @@
             {
                 "version": "1.5.2",
                 "source": "DOWNLOAD",
-                "server_url": "https://piston-data.mojang.com/v1/objects/f9ae3f651319151ce99a0bfad6b34fa16eb6775f/server.jar",
+                "server_url": "https://launcher.mojang.com/v1/objects/f9ae3f651319151ce99a0bfad6b34fa16eb6775f/server.jar",
                 "supports_plugins": false,
                 "supports_mods": false,
                 "configs": [],
