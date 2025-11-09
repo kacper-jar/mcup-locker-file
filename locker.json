@@ -283,7 +283,7 @@
             {
                 "version": "1.8.9",
                 "source": "DOWNLOAD",
-                "server_url": "https://piston-data.mojang.com/v1/objects/b58b2ceb36e01bcd8dbf49c8fb66c55a9f0676cd/server.jar",
+                "server_url": "https://launcher.mojang.com/v1/objects/b58b2ceb36e01bcd8dbf49c8fb66c55a9f0676cd/server.jar",
                 "supports_plugins": false,
                 "supports_mods": false,
                 "configs": [],
