@@ -274,7 +274,7 @@
             {
                 "version": "1.8.8",
                 "source": "DOWNLOAD",
-                "server_url": "https://piston-data.mojang.com/v1/objects/5fafba3f58c40dc51b5c3ca72a98f62dfdae1db7/server.jar",
+                "server_url": "https://launcher.mojang.com/v1/objects/5fafba3f58c40dc51b5c3ca72a98f62dfdae1db7/server.jar",
                 "supports_plugins": false,
                 "supports_mods": false,
                 "configs": [],
