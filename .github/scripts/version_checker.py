@@ -45,12 +45,38 @@ class VersionChecker:
             print(f"Error: {e.stderr}")
             return False
 
+    def has_open_pr(self, title: str) -> bool:
+        """Return True if there is already an open PR with the given title."""
+        if not self.repo:
+            return False
+
+        headers = {"Accept": "application/vnd.github+json"}
+        if self.github_token:
+            headers["Authorization"] = f"token {self.github_token}"
+
+        url = f"https://api.github.com/repos/{self.repo}/pulls?state=open&per_page=100"
+        try:
+            resp = requests.get(url, headers=headers, timeout=15)
+            resp.raise_for_status()
+            for pr in resp.json():
+                if pr.get("title") == title:
+                    return True
+        except Exception as e:
+            print(f"Warning: failed to check existing PRs: {e}")
+        return False
+
     def create_pr(self, server_type: str, version: str, is_new: bool, entry: dict):
         """Create a PR for a single version change."""
         self.run_command(['git', 'checkout', 'main'])
         self.run_command(['git', 'pull', 'origin', 'main'])
 
         action = "new" if is_new else "update"
+        pr_title = f"New {server_type.capitalize()} {version}" if is_new else f"Update {server_type.capitalize()} {version}"
+
+        if self.has_open_pr(pr_title):
+            print(f"Skipping PR creation: an open PR already exists with title '{pr_title}'")
+            return
+
         branch_name = f"auto-{action}-{server_type}-{version}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
 
         if not self.run_command(['git', 'checkout', '-b', branch_name]):
@@ -65,8 +91,7 @@ class VersionChecker:
 
         if is_new:
             self.locker_data['servers'][server_type].append(entry)
-            commit_msg = f"New {server_type.capitalize()} {version}"
-            pr_title = f"New {server_type.capitalize()} {version}"
+            commit_msg = f"locker: New {server_type.capitalize()} {version}"
             pr_label = "release"
             pr_body = f"""## New Version Available
 
@@ -93,8 +118,7 @@ class VersionChecker:
                     self.locker_data['servers'][server_type][i] = entry
                     break
 
-            commit_msg = f"Update {server_type.capitalize()} {version}"
-            pr_title = f"Update {server_type.capitalize()} {version}"
+            commit_msg = f"locker: Update {server_type.capitalize()} {version}"
             pr_label = "update"
             pr_body = f"""## Version Update
 
