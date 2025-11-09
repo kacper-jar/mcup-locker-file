@@ -803,6 +803,15 @@
                 "cleanup": []
             },
             {
+                "version": "1.21.9",
+                "source": "DOWNLOAD",
+                "server_url": "https://piston-data.mojang.com/v1/objects/11e54c2081420a4d49db3007e66c80a22579ff2a/server.jar",
+                "supports_plugins": false,
+                "supports_mods": false,
+                "configs": [],
+                "cleanup": []
+            },
+            {
                 "version": "1.21.10",
                 "source": "DOWNLOAD",
                 "server_url": "https://piston-data.mojang.com/v1/objects/95495a7f485eedd84ce928cef5e223b757d2f764/server.jar",
