@@ -28,6 +28,11 @@ jobs:
         run: |
           pip install requests
 
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Check for new versions and create PRs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
