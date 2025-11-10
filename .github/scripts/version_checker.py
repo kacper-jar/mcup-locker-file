@@ -71,7 +71,7 @@ class VersionChecker:
         self.run_command(['git', 'pull', 'origin', 'main'])
 
         action = "new" if is_new else "update"
-        pr_title = f"New {server_type.capitalize()} {version}" if is_new else f"Update {server_type.capitalize()} {version}"
+        pr_title = f"Add {server_type.capitalize()} {version}" if is_new else f"Update {server_type.capitalize()} {version}"
 
         if self.has_open_pr(pr_title):
             print(f"Skipping PR creation: an open PR already exists with title '{pr_title}'")
@@ -91,7 +91,7 @@ class VersionChecker:
 
         if is_new:
             self.locker_data['servers'][server_type].append(entry)
-            commit_msg = f"locker: New {server_type.capitalize()} {version}"
+            commit_msg = f"locker: Add {server_type.capitalize()} {version}"
             pr_label = "release"
             pr_body = f"""## New Version Available
 
