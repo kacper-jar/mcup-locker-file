@@ -5191,6 +5191,48 @@
                 "cleanup": [
                     "fabric-installer-1.1.0.jar"
                 ]
+            },
+            {
+                "version": "1.21.9",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "server",
+                    "-mcversion",
+                    "%version",
+                    "-downloadMinecraft",
+                    "-noprofile"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "fabric-installer-1.1.0.jar"
+                ]
+            },
+            {
+                "version": "1.21.10",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "server",
+                    "-mcversion",
+                    "%version",
+                    "-downloadMinecraft",
+                    "-noprofile"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "fabric-installer-1.1.0.jar"
+                ]
             }
         ],
         "quilt": [
