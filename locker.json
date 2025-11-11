@@ -6835,6 +6835,46 @@
                     "run.bat",
                     "run.sh"
                 ]
+            },
+            {
+                "version": "1.21.9",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.9-59.0.5/forge-1.21.9-59.0.5-installer.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--installServer"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "forge-1.21.9-59.0.5-installer.jar",
+                    "user_jvm_args.txt",
+                    "run.bat",
+                    "run.sh"
+                ]
+            },
+            {
+                "version": "1.21.10",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.10-60.0.18/forge-1.21.10-60.0.18-installer.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--installServer"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "forge-1.21.10-60.0.18-installer.jar",
+                    "user_jvm_args.txt",
+                    "run.bat",
+                    "run.sh"
+                ]
             }
         ],
         "neoforge": [
