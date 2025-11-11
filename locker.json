@@ -2221,6 +2221,62 @@
                     "BuildData",
                     "apache-maven-3.9.6"
                 ]
+            },
+            {
+                "version": "1.21.9",
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--compile",
+                    "craftbukkit",
+                    "--rev",
+                    "%version"
+                ],
+                "supports_plugins": true,
+                "supports_mods": false,
+                "configs": [
+                    "bukkit"
+                ],
+                "cleanup": [
+                    "BuildTools.jar",
+                    "Bukkit",
+                    "CraftBukkit",
+                    "work",
+                    "Spigot",
+                    "BuildData",
+                    "apache-maven-3.9.6"
+                ]
+            },
+            {
+                "version": "1.21.10",
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--compile",
+                    "craftbukkit",
+                    "--rev",
+                    "%version"
+                ],
+                "supports_plugins": true,
+                "supports_mods": false,
+                "configs": [
+                    "bukkit"
+                ],
+                "cleanup": [
+                    "BuildTools.jar",
+                    "Bukkit",
+                    "CraftBukkit",
+                    "work",
+                    "Spigot",
+                    "BuildData",
+                    "apache-maven-3.9.6"
+                ]
             }
         ],
         "spigot": [
@@ -3618,6 +3674,64 @@
             },
             {
                 "version": "1.21.8",
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--compile",
+                    "spigot",
+                    "--rev",
+                    "%version"
+                ],
+                "supports_plugins": true,
+                "supports_mods": false,
+                "configs": [
+                    "bukkit",
+                    "spigot"
+                ],
+                "cleanup": [
+                    "BuildTools.jar",
+                    "Bukkit",
+                    "CraftBukkit",
+                    "work",
+                    "Spigot",
+                    "BuildData",
+                    "apache-maven-3.9.6"
+                ]
+            },
+            {
+                "version": "1.21.9",
+                "source": "INSTALLER",
+                "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--compile",
+                    "spigot",
+                    "--rev",
+                    "%version"
+                ],
+                "supports_plugins": true,
+                "supports_mods": false,
+                "configs": [
+                    "bukkit",
+                    "spigot"
+                ],
+                "cleanup": [
+                    "BuildTools.jar",
+                    "Bukkit",
+                    "CraftBukkit",
+                    "work",
+                    "Spigot",
+                    "BuildData",
+                    "apache-maven-3.9.6"
+                ]
+            },
+            {
+                "version": "1.21.10",
                 "source": "INSTALLER",
                 "installer_url": "https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar",
                 "installer_args": [
