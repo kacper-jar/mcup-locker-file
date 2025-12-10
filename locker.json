@@ -819,6 +819,15 @@
                 "supports_mods": false,
                 "configs": [],
                 "cleanup": []
+            },
+            {
+                "version": "1.21.11",
+                "source": "DOWNLOAD",
+                "server_url": "https://piston-data.mojang.com/v1/objects/64bb6d763bed0a9f1d632ec347938594144943ed/server.jar",
+                "supports_plugins": false,
+                "supports_mods": false,
+                "configs": [],
+                "cleanup": []
             }
         ],
         "bukkit": [
