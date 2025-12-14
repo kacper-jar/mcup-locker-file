@@ -257,13 +257,25 @@ Updated download URL or build information for this version.
             file_name = app_download.get('name')
             server_url = f"https://api.papermc.io/v2/projects/paper/versions/{version}/builds/{build_number}/downloads/{file_name}"
 
+            configs = []
+            try:
+                parts = [int(p) for p in version.split('.')]
+
+                if parts[0] == 1 and parts[1] >= 19:
+                     configs = ['bukkit', 'spigot', 'paper-global', 'paper-world-defaults']
+                else:
+                    configs = ['bukkit', 'spigot', 'paper']
+            except ValueError:
+                print(f"  WARNING: Could not parse version {version} for config determination, defaulting to old configs")
+                configs = ['bukkit', 'spigot', 'paper']
+
             entry = {
                 "version": version,
                 "source": "DOWNLOAD",
                 "server_url": server_url,
                 "supports_plugins": True,
                 "supports_mods": False,
-                "configs": [],
+                "configs": configs,
                 "cleanup": []
             }
 
