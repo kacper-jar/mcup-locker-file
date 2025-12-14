@@ -4361,7 +4361,7 @@
             {
                 "version": "1.21.8",
                 "source": "DOWNLOAD",
-                "server_url": "https://api.papermc.io/v2/projects/paper/versions/1.21.8/builds/11/downloads/paper-1.21.8-11.jar",
+                "server_url": "https://api.papermc.io/v2/projects/paper/versions/1.21.8/builds/60/downloads/paper-1.21.8-60.jar",
                 "supports_plugins": true,
                 "supports_mods": false,
                 "configs": [
