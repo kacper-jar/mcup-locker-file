@@ -65,6 +65,43 @@ class VersionChecker:
             print(f"Warning: failed to check existing PRs: {e}")
         return False
 
+    def close_outdated_pr(self, server_type: str, version: str) -> str:
+        """
+        Close any existing open PR for the same server_type and version but different content.
+        Returns a message string to append to the new PR body if one was closed.
+        """
+        if not self.repo:
+            return ""
+
+        headers = {"Accept": "application/vnd.github+json"}
+        if self.github_token:
+            headers["Authorization"] = f"token {self.github_token}"
+
+        url = f"https://api.github.com/repos/{self.repo}/pulls?state=open&per_page=100"
+        closed_pr_msg = ""
+        
+        try:
+            resp = requests.get(url, headers=headers, timeout=15)
+            resp.raise_for_status()
+            
+            target_title_start = f"Update {server_type.capitalize()} {version}"
+            
+            for pr in resp.json():
+                title = pr.get("title", "")
+                if title.startswith(target_title_start):
+                    pr_number = pr.get("number")
+                    print(f"Closing outdated PR #{pr_number}: {title}")
+                    
+                    close_url = f"https://api.github.com/repos/{self.repo}/pulls/{pr_number}"
+                    requests.patch(close_url, headers=headers, json={"state": "closed"}, timeout=15)
+                    
+                    closed_pr_msg += f"\nCloses #{pr_number}"
+                    
+        except Exception as e:
+            print(f"Warning: failed to close outdated PRs: {e}")
+            
+        return closed_pr_msg
+
     def create_pr(self, server_type: str, version: str, is_new: bool, entry: dict):
         """Create a PR for a single version change."""
         self.run_command(['git', 'checkout', 'main'])
@@ -137,6 +174,9 @@ Updated download URL or build information for this version.
 ---
 *This PR was automatically created by the version checker workflow.*
 """
+            closed_note = self.close_outdated_pr(server_type, version)
+            if closed_note:
+                pr_body += f"\n\n{closed_note}"
 
         self.save_locker()
 
@@ -162,6 +202,79 @@ Updated download URL or build information for this version.
             print(f"Created PR: {pr_title}")
         else:
             print(f"Failed to create PR for {server_type} {version}")
+
+    def check_paper(self) -> List[Tuple[str, str, bool, dict]]:
+        """Check for new PaperMC versions."""
+        print("  Fetching version manifest from PaperMC...")
+        url = "https://api.papermc.io/v2/projects/paper"
+        try:
+            response = requests.get(url, timeout=15)
+            response.raise_for_status()
+            data = response.json()
+        except Exception as e:
+            print(f"  Error fetching Paper manifest: {e}")
+            return []
+
+        existing_versions = self.get_existing_versions('paper')
+        changes = []
+
+        versions = data.get('versions', [])
+        print(f"  Found {len(versions)} total versions from PaperMC")
+        print(f"  Currently tracking {len(existing_versions)} versions in locker")
+
+        for version in versions:
+            if '-' in version:
+                continue
+
+            builds_url = f"https://api.papermc.io/v2/projects/paper/versions/{version}/builds"
+            try:
+                build_resp = requests.get(builds_url, timeout=15)
+                build_resp.raise_for_status()
+                build_data = build_resp.json()
+            except Exception as e:
+                print(f"  Error fetching builds for {version}: {e}")
+                continue
+
+            builds = build_data.get('builds', [])
+            if not builds:
+                print(f"  WARNING: {version} has no builds available")
+                continue
+            
+            stable_builds = [b for b in builds if b.get('channel') == 'default']
+            
+            if not stable_builds:
+                continue
+
+            latest_build = stable_builds[-1]
+            build_number = latest_build.get('build')
+            downloads = latest_build.get('downloads', {})
+            app_download = downloads.get('application', {})
+            
+            if not app_download:
+                print(f"  WARNING: {version} build {build_number} has no application download")
+                continue
+
+            file_name = app_download.get('name')
+            server_url = f"https://api.papermc.io/v2/projects/paper/versions/{version}/builds/{build_number}/downloads/{file_name}"
+
+            entry = {
+                "version": version,
+                "source": "DOWNLOAD",
+                "server_url": server_url,
+                "supports_plugins": True,
+                "supports_mods": False,
+                "configs": [],
+                "cleanup": []
+            }
+
+            if version not in existing_versions:
+                changes.append(('paper', version, True, entry))
+                print(f"  NEW: {version}")
+            elif existing_versions[version].get('server_url') != server_url:
+                changes.append(('paper', version, False, entry))
+                print(f"  UPDATE: {version} (New build {build_number})")
+
+        return changes
 
     def check_vanilla(self) -> List[Tuple[str, str, bool, dict]]:
         """Check for new Vanilla Minecraft versions."""
@@ -215,11 +328,15 @@ Updated download URL or build information for this version.
         print("=" * 60)
 
         try:
-            changes = self.check_vanilla()
+            changes = []
+            changes.extend(self.check_vanilla())
+            changes.extend(self.check_paper())
             print("=" * 60)
             print()
         except Exception as e:
-            print(f"Error checking Vanilla: {e}")
+            print(f"Error checking versions: {e}")
+            import traceback
+            traceback.print_exc()
             return
 
         if not changes:
