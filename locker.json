@@ -4337,7 +4337,12 @@
                 "server_url": "https://api.papermc.io/v2/projects/paper/versions/1.21.7/builds/32/downloads/paper-1.21.7-32.jar",
                 "supports_plugins": true,
                 "supports_mods": false,
-                "configs": [],
+                "configs": [
+                    "bukkit",
+                    "spigot",
+                    "paper-global",
+                    "paper-world-defaults"
+                ],
                 "cleanup": []
             },
             {
