@@ -4358,6 +4358,15 @@
                     "paper-world-defaults"
                 ],
                 "cleanup": []
+            },
+            {
+                "version": "1.7.10",
+                "source": "DOWNLOAD",
+                "server_url": "https://api.papermc.io/v2/projects/paper/versions/1.7.10/builds/2025/downloads/paper-1.7.10-2025.jar",
+                "supports_plugins": true,
+                "supports_mods": false,
+                "configs": [],
+                "cleanup": []
             }
         ],
         "fabric": [
