@@ -4319,7 +4319,7 @@
             {
                 "version": "1.21.4",
                 "source": "DOWNLOAD",
-                "server_url": "https://api.papermc.io/v2/projects/paper/versions/1.21.4/builds/224/downloads/paper-1.21.4-224.jar",
+                "server_url": "https://api.papermc.io/v2/projects/paper/versions/1.21.4/builds/232/downloads/paper-1.21.4-232.jar",
                 "supports_plugins": true,
                 "supports_mods": false,
                 "configs": [
