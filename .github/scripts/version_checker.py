@@ -211,6 +211,53 @@ Updated download URL or build information for this version.
         else:
             logging.error(f"Failed to create PR for {server_type} {version}")
 
+    def check_vanilla(self) -> List[Tuple[str, str, bool, dict]]:
+        """Check for new Vanilla Minecraft versions."""
+        logging.info("Fetching version manifest from Mojang...")
+        url = "https://launchermeta.mojang.com/mc/game/version_manifest.json"
+        response = requests.get(url)
+        data = response.json()
+
+        existing_versions = self.get_existing_versions('vanilla')
+        changes = []
+
+        logging.info(f"Found {len(data['versions'])} total versions from Mojang")
+        logging.info(f"Currently tracking {len(existing_versions)} versions in locker")
+
+        release_count = 0
+        for version_info in data['versions']:
+            if version_info['type'] == 'release':
+                release_count += 1
+                version = version_info['id']
+
+                version_detail = requests.get(version_info['url']).json()
+                if 'server' not in version_detail.get('downloads', {}):
+                    logging.warning(f"{version} has no server download available")
+                    continue
+
+                server_url = version_detail['downloads']['server']['url']
+
+                entry = {
+                    "version": version,
+                    "source": "DOWNLOAD",
+                    "server_url": server_url,
+                    "supports_plugins": False,
+                    "supports_mods": False,
+                    "configs": [],
+                    "cleanup": []
+                }
+
+                if version not in existing_versions:
+                    changes.append(('vanilla', version, True, entry))
+                    logging.info(f"NEW: {version}")
+                elif existing_versions[version].get('server_url') != server_url:
+                    changes.append(('vanilla', version, False, entry))
+                    logging.info(f"UPDATE: {version} (URL changed)")
+
+        logging.info(f"Found {release_count} release versions total")
+
+        return changes
+
     def check_paper(self) -> List[Tuple[str, str, bool, dict]]:
         """Check for new PaperMC versions."""
         logging.info("Fetching version manifest from PaperMC...")
@@ -385,53 +432,6 @@ Updated download URL or build information for this version.
             elif existing_versions[mc_version].get('installer_url') != installer_url:
                 changes.append(('forge', mc_version, False, entry))
                 logging.info(f"UPDATE: {mc_version} (Forge {forge_version})")
-
-        return changes
-
-    def check_vanilla(self) -> List[Tuple[str, str, bool, dict]]:
-        """Check for new Vanilla Minecraft versions."""
-        logging.info("Fetching version manifest from Mojang...")
-        url = "https://launchermeta.mojang.com/mc/game/version_manifest.json"
-        response = requests.get(url)
-        data = response.json()
-
-        existing_versions = self.get_existing_versions('vanilla')
-        changes = []
-
-        logging.info(f"Found {len(data['versions'])} total versions from Mojang")
-        logging.info(f"Currently tracking {len(existing_versions)} versions in locker")
-
-        release_count = 0
-        for version_info in data['versions']:
-            if version_info['type'] == 'release':
-                release_count += 1
-                version = version_info['id']
-
-                version_detail = requests.get(version_info['url']).json()
-                if 'server' not in version_detail.get('downloads', {}):
-                    logging.warning(f"WARNING: {version} has no server download available")
-                    continue
-
-                server_url = version_detail['downloads']['server']['url']
-
-                entry = {
-                    "version": version,
-                    "source": "DOWNLOAD",
-                    "server_url": server_url,
-                    "supports_plugins": False,
-                    "supports_mods": False,
-                    "configs": [],
-                    "cleanup": []
-                }
-
-                if version not in existing_versions:
-                    changes.append(('vanilla', version, True, entry))
-                    logging.info(f"NEW: {version}")
-                elif existing_versions[version].get('server_url') != server_url:
-                    changes.append(('vanilla', version, False, entry))
-                    logging.info(f"UPDATE: {version} (URL changed)")
-
-        logging.info(f"Found {release_count} release versions total")
 
         return changes
 
