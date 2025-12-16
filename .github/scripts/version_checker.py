@@ -288,6 +288,95 @@ Updated download URL or build information for this version.
 
         return changes
 
+    def check_forge(self) -> List[Tuple[str, str, bool, dict]]:
+        """Check for new Forge versions."""
+        print("  Fetching promotions from Forge...")
+        url = "https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json"
+        try:
+            response = requests.get(url, timeout=15)
+            response.raise_for_status()
+            data = response.json()
+        except Exception as e:
+            print(f"  Error fetching Forge promotions: {e}")
+            return []
+
+        existing_versions = self.get_existing_versions('forge')
+        changes = []
+        promos = data.get('promos', {})
+        
+        print(f"  Found {len(promos)} total promo entries from Forge")
+        print(f"  Currently tracking {len(existing_versions)} versions in locker")
+
+        for key, forge_version in promos.items():
+            if not key.endswith('-latest'):
+                continue
+                
+            mc_version = key.replace('-latest', '')
+            
+            try:
+                mc_version_parts = [int(x) for x in mc_version.split('.')]
+            except ValueError:
+                print(f"  Skipping weird version: {mc_version}")
+                continue
+
+            if mc_version_parts < [1, 2, 5]:
+                print(f"  Skipping Forge for MC {mc_version} (too old - not supported by mcup)")
+                continue
+            
+            is_legacy_url = mc_version_parts <= [1, 10, 0]
+            
+            if is_legacy_url:
+                 # e.g. 1.10-12.18.0.2000 -> forge-1.10-12.18.0.2000-1.10.0-installer.jar
+                 mc_version_full = mc_version if len(mc_version_parts) == 3 else f"{mc_version}.0"
+                 base_url = f"https://maven.minecraftforge.net/net/minecraftforge/forge/{mc_version}-{forge_version}-{mc_version_full}/"
+                 file_name = f"forge-{mc_version}-{forge_version}-{mc_version_full}-installer.jar"
+            else:
+                 # e.g. 1.20.1-47.4.13 -> forge-1.20.1-47.4.13-installer.jar
+                 base_url = f"https://maven.minecraftforge.net/net/minecraftforge/forge/{mc_version}-{forge_version}/"
+                 file_name = f"forge-{mc_version}-{forge_version}-installer.jar"
+
+            installer_url = f"{base_url}{file_name}"
+            
+            cleanup = [file_name]
+            
+            is_modern_cleanup = False
+            if mc_version_parts[0] > 1: 
+                is_modern_cleanup = True
+            elif mc_version_parts[0] == 1 and mc_version_parts[1] >= 17:
+                is_modern_cleanup = True
+            
+            if is_modern_cleanup:
+                cleanup.extend([
+                    "user_jvm_args.txt",
+                    "run.bat",
+                    "run.sh"
+                ])
+
+            entry = {
+                "version": mc_version,
+                "source": "INSTALLER",
+                "installer_url": installer_url,
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--installServer"
+                ],
+                "supports_plugins": False,
+                "supports_mods": True,
+                "configs": [],
+                "cleanup": cleanup
+            }
+
+            if mc_version not in existing_versions:
+                changes.append(('forge', mc_version, True, entry))
+                print(f"  NEW: {mc_version} (Forge {forge_version})")
+            elif existing_versions[mc_version].get('installer_url') != installer_url:
+                changes.append(('forge', mc_version, False, entry))
+                print(f"  UPDATE: {mc_version} (Forge {forge_version})")
+
+        return changes
+
     def check_vanilla(self) -> List[Tuple[str, str, bool, dict]]:
         """Check for new Vanilla Minecraft versions."""
         print("  Fetching version manifest from Mojang...")
@@ -343,6 +432,7 @@ Updated download URL or build information for this version.
             changes = []
             changes.extend(self.check_vanilla())
             changes.extend(self.check_paper())
+            changes.extend(self.check_forge())
             print("=" * 60)
             print()
         except Exception as e:
