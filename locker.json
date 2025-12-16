@@ -6535,7 +6535,7 @@
             {
                 "version": "1.19.2",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.19.2-43.5.1/forge-1.19.2-43.5.1-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.19.2-43.5.2/forge-1.19.2-43.5.2-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6546,7 +6546,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.19.2-43.5.1-installer.jar",
+                    "forge-1.19.2-43.5.2-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
