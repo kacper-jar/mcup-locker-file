@@ -435,6 +435,31 @@ Updated download URL or build information for this version.
 
         return changes
 
+    def is_url_valid(self, url: str) -> bool:
+        """Check if a URL is valid."""
+        if not url:
+            return False
+
+        try:
+            response = requests.head(url, allow_redirects=True, timeout=10)
+            if response.status_code == 404:
+                return False
+            if response.status_code in [405, 403]:
+                pass
+            else:
+                return True
+        except requests.RequestException:
+            pass
+
+        try:
+            with requests.get(url, stream=True, allow_redirects=True, timeout=10) as response:
+                if response.status_code == 404:
+                    return False
+                return True
+        except requests.RequestException as e:
+            logging.warning(f"Error checking URL {url}: {e}")
+            return False
+
     def run(self):
         logging.info("Checking for new versions...")
 
@@ -456,6 +481,17 @@ Updated download URL or build information for this version.
         for server_type, version, is_new, entry in changes:
             action = "NEW" if is_new else "UPDATE"
             logging.info(f"[{action}] Processing {server_type} {version}...")
+            
+            check_url = entry.get('server_url') or entry.get('installer_url')
+            if check_url:
+                logging.info(f"Verifying URL: {check_url}")
+                if not self.is_url_valid(check_url):
+                    logging.warning(f"Skipping {server_type} {version}: URL returned 404 or is invalid.")
+                    continue
+            else:
+                logging.warning(f"Skipping {server_type} {version}: No URL found to check.")
+                continue
+
             try:
                 self.create_pr(server_type, version, is_new, entry)
             except Exception as e:
