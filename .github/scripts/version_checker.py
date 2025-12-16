@@ -319,15 +319,18 @@ Updated download URL or build information for this version.
                 print(f"  Skipping weird version: {mc_version}")
                 continue
 
-            if mc_version_parts < [1, 2, 5]:
-                print(f"  Skipping Forge for MC {mc_version} (too old - not supported by mcup)")
+            if mc_version_parts < [1, 5, 2]:
+                print(f"  Skipping Forge for MC {mc_version} (too old - not supported by mcup / no installer download)")
                 continue
             
-            is_legacy_url = mc_version_parts <= [1, 10, 0]
+            is_legacy_url = [1, 7, 10] <= mc_version_parts <= [1, 10, 0] or mc_version_parts == [1, 7, 2]
             
             if is_legacy_url:
                  # e.g. 1.10-12.18.0.2000 -> forge-1.10-12.18.0.2000-1.10.0-installer.jar
-                 mc_version_full = mc_version if len(mc_version_parts) == 3 else f"{mc_version}.0"
+                 if mc_version_parts == [1, 7, 2]:
+                     mc_version_full = "mc172"
+                 else:
+                     mc_version_full = mc_version if len(mc_version_parts) == 3 else f"{mc_version}.0"
                  base_url = f"https://maven.minecraftforge.net/net/minecraftforge/forge/{mc_version}-{forge_version}-{mc_version_full}/"
                  file_name = f"forge-{mc_version}-{forge_version}-{mc_version_full}-installer.jar"
             else:
