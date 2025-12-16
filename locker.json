@@ -3770,7 +3770,7 @@
             }
         ],
         "paper": [
-          {
+            {
                 "version": "1.7.10",
                 "source": "DOWNLOAD",
                 "server_url": "https://api.papermc.io/v2/projects/paper/versions/1.7.10/builds/2025/downloads/paper-1.7.10-2025.jar",
@@ -6910,6 +6910,23 @@
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
+                ]
+            },
+            {
+                "version": "1.6.3",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.3-9.11.0.878-1.6.3/forge-1.6.3-9.11.0.878-1.6.3-installer.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--installServer"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "forge-1.6.3-9.11.0.878-1.6.3-installer.jar"
                 ]
             }
         ],
