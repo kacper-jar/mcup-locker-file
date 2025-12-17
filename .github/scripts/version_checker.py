@@ -451,8 +451,6 @@ Updated download URL or build information for this version.
         existing_versions = self.get_existing_versions('neoforge')
         changes = []
         
-        # Parse versions
-        # Loop through <versioning><versions><version>...</version></versions></versioning>
         versioning = root.find('versioning')
         if versioning is None:
             logging.warning("Could not find versioning tag in NeoForge metadata")
@@ -468,38 +466,19 @@ Updated download URL or build information for this version.
         logging.info(f"Currently tracking {len(existing_versions)} versions in locker")
 
         for neo_version in all_versions:
-            # Filter out beta versions
             if neo_version.endswith('-beta'):
                 continue
             
-            # NeoForge version format: 21.0.0 (for MC 1.21) or 20.4.167 (for MC 1.20.4)
-            # We need to derive MC version.
-            # Start with splitting by dot.
             try:
                 parts = [int(p) for p in neo_version.split('.')]
             except ValueError:
                 logging.warning(f"Skipping unparseable NeoForge version: {neo_version}")
                 continue
-                
-            # Logic:
-            # 21.x.x -> 1.21.x (Maybe?)
-            # Actually, let's look at recent versions:
-            # 20.4.167 -> MC 1.20.4
-            # 21.0.0-beta -> MC 1.21
-            # 21.1.0-beta -> MC 1.21.1
-            # So rule seems to be: 
-            # 20.4.x -> 1.20.4
-            # 21.1.x -> 1.21.1
-            # 21.0.x -> 1.21 (or 1.21.0)
             
             major = parts[0]
             minor = parts[1]
             
             if major >= 20: 
-                # Modern NeoForge versioning
-                # major corresponds to MC minor version (e.g. 20 -> 1.20, 21 -> 1.21)
-                # minor corresponds to MC patch version (e.g. 4 -> .4, 0 -> .0 or empty)
-                
                 mc_major = 1
                 mc_minor = major
                 mc_patch = minor
