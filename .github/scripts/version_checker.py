@@ -6,6 +6,7 @@ Checks various sources for new versions and creates individual PRs for each chan
 
 import os
 import json
+import logging
 import requests
 import subprocess
 from datetime import datetime
@@ -14,8 +15,15 @@ from typing import Dict, List, Tuple
 
 class VersionChecker:
     def __init__(self, locker_file: str = 'locker.json'):
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s - %(levelname)s - %(message)s',
+            datefmt='%Y-%m-%d %H:%M:%S'
+        )
+
         self.locker_file = locker_file
         self.locker_data = self.load_locker()
+        
         self.github_token = os.environ.get('GITHUB_TOKEN')
         self.repo = os.environ.get('GITHUB_REPOSITORY', '')
 
@@ -41,8 +49,8 @@ class VersionChecker:
             result = subprocess.run(cmd, check=True, capture_output=True, text=True)
             return True
         except subprocess.CalledProcessError as e:
-            print(f"Command failed: {' '.join(cmd)}")
-            print(f"Error: {e.stderr}")
+            logging.error(f"Command failed: {' '.join(cmd)}")
+            logging.error(f"Error: {e.stderr}")
             return False
 
     def has_open_pr(self, title: str) -> bool:
@@ -62,7 +70,7 @@ class VersionChecker:
                 if pr.get("title") == title:
                     return True
         except Exception as e:
-            print(f"Warning: failed to check existing PRs: {e}")
+            logging.warning(f"Failed to check existing PRs: {e}")
         return False
 
     def close_outdated_pr(self, server_type: str, version: str) -> str:
@@ -90,7 +98,7 @@ class VersionChecker:
                 title = pr.get("title", "")
                 if title.startswith(target_title_start):
                     pr_number = pr.get("number")
-                    print(f"Closing outdated PR #{pr_number}: {title}")
+                    logging.info(f"Closing outdated PR #{pr_number}: {title}")
                     
                     close_url = f"https://api.github.com/repos/{self.repo}/pulls/{pr_number}"
                     requests.patch(close_url, headers=headers, json={"state": "closed"}, timeout=15)
@@ -98,7 +106,7 @@ class VersionChecker:
                     closed_pr_msg += f"\nCloses #{pr_number}"
                     
         except Exception as e:
-            print(f"Warning: failed to close outdated PRs: {e}")
+            logging.warning(f"Failed to close outdated PRs: {e}")
             
         return closed_pr_msg
 
@@ -111,7 +119,7 @@ class VersionChecker:
         pr_title = f"Add {server_type.capitalize()} {version}" if is_new else f"Update {server_type.capitalize()} {version}"
 
         if self.has_open_pr(pr_title):
-            print(f"Skipping PR creation: an open PR already exists with title '{pr_title}'")
+            logging.info(f"Skipping PR creation: an open PR already exists with title '{pr_title}'")
             return
 
         branch_name = f"auto-{action}-{server_type}-{version}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
@@ -199,28 +207,75 @@ Updated download URL or build information for this version.
         ]
 
         if self.run_command(pr_command):
-            print(f"Created PR: {pr_title}")
+            logging.info(f"Created PR: {pr_title}")
         else:
-            print(f"Failed to create PR for {server_type} {version}")
+            logging.error(f"Failed to create PR for {server_type} {version}")
+
+    def check_vanilla(self) -> List[Tuple[str, str, bool, dict]]:
+        """Check for new Vanilla Minecraft versions."""
+        logging.info("Fetching version manifest from Mojang...")
+        url = "https://launchermeta.mojang.com/mc/game/version_manifest.json"
+        response = requests.get(url)
+        data = response.json()
+
+        existing_versions = self.get_existing_versions('vanilla')
+        changes = []
+
+        logging.info(f"Found {len(data['versions'])} total versions from Mojang")
+        logging.info(f"Currently tracking {len(existing_versions)} versions in locker")
+
+        release_count = 0
+        for version_info in data['versions']:
+            if version_info['type'] == 'release':
+                release_count += 1
+                version = version_info['id']
+
+                version_detail = requests.get(version_info['url']).json()
+                if 'server' not in version_detail.get('downloads', {}):
+                    logging.warning(f"{version} has no server download available")
+                    continue
+
+                server_url = version_detail['downloads']['server']['url']
+
+                entry = {
+                    "version": version,
+                    "source": "DOWNLOAD",
+                    "server_url": server_url,
+                    "supports_plugins": False,
+                    "supports_mods": False,
+                    "configs": [],
+                    "cleanup": []
+                }
+
+                if version not in existing_versions:
+                    changes.append(('vanilla', version, True, entry))
+                    logging.info(f"NEW: {version}")
+                elif existing_versions[version].get('server_url') != server_url:
+                    changes.append(('vanilla', version, False, entry))
+                    logging.info(f"UPDATE: {version} (URL changed)")
+
+        logging.info(f"Found {release_count} release versions total")
+
+        return changes
 
     def check_paper(self) -> List[Tuple[str, str, bool, dict]]:
         """Check for new PaperMC versions."""
-        print("  Fetching version manifest from PaperMC...")
+        logging.info("Fetching version manifest from PaperMC...")
         url = "https://api.papermc.io/v2/projects/paper"
         try:
             response = requests.get(url, timeout=15)
             response.raise_for_status()
             data = response.json()
         except Exception as e:
-            print(f"  Error fetching Paper manifest: {e}")
+            logging.error(f"Error fetching Paper manifest: {e}")
             return []
 
         existing_versions = self.get_existing_versions('paper')
         changes = []
 
         versions = data.get('versions', [])
-        print(f"  Found {len(versions)} total versions from PaperMC")
-        print(f"  Currently tracking {len(existing_versions)} versions in locker")
+        logging.info(f"Found {len(versions)} total versions from PaperMC")
+        logging.info(f"Currently tracking {len(existing_versions)} versions in locker")
 
         for version in versions:
             if '-' in version:
@@ -232,12 +287,12 @@ Updated download URL or build information for this version.
                 build_resp.raise_for_status()
                 build_data = build_resp.json()
             except Exception as e:
-                print(f"  Error fetching builds for {version}: {e}")
+                logging.error(f"Error fetching builds for {version}: {e}")
                 continue
 
             builds = build_data.get('builds', [])
             if not builds:
-                print(f"  WARNING: {version} has no builds available")
+                logging.warning(f"{version} has no builds available")
                 continue
             
             stable_builds = [b for b in builds if b.get('channel') == 'default']
@@ -251,7 +306,7 @@ Updated download URL or build information for this version.
             app_download = downloads.get('application', {})
             
             if not app_download:
-                print(f"  WARNING: {version} build {build_number} has no application download")
+                logging.warning(f"{version} build {build_number} has no application download")
                 continue
 
             file_name = app_download.get('name')
@@ -266,7 +321,7 @@ Updated download URL or build information for this version.
                 else:
                     configs = ['bukkit', 'spigot', 'paper']
             except ValueError:
-                print(f"  WARNING: Could not parse version {version} for config determination, defaulting to old configs")
+                logging.warning(f"Could not parse version {version} for config determination, defaulting to old configs")
                 configs = ['bukkit', 'spigot', 'paper']
 
             entry = {
@@ -281,31 +336,31 @@ Updated download URL or build information for this version.
 
             if version not in existing_versions:
                 changes.append(('paper', version, True, entry))
-                print(f"  NEW: {version}")
+                logging.info(f"NEW: {version}")
             elif existing_versions[version].get('server_url') != server_url:
                 changes.append(('paper', version, False, entry))
-                print(f"  UPDATE: {version} (New build {build_number})")
+                logging.info(f"UPDATE: {version} (New build {build_number})")
 
         return changes
 
     def check_forge(self) -> List[Tuple[str, str, bool, dict]]:
         """Check for new Forge versions."""
-        print("  Fetching promotions from Forge...")
+        logging.info("Fetching promotions from Forge...")
         url = "https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json"
         try:
             response = requests.get(url, timeout=15)
             response.raise_for_status()
             data = response.json()
         except Exception as e:
-            print(f"  Error fetching Forge promotions: {e}")
+            logging.error(f"Error fetching Forge promotions: {e}")
             return []
 
         existing_versions = self.get_existing_versions('forge')
         changes = []
         promos = data.get('promos', {})
         
-        print(f"  Found {len(promos)} total promo entries from Forge")
-        print(f"  Currently tracking {len(existing_versions)} versions in locker")
+        logging.info(f"Found {len(promos)} total promo entries from Forge")
+        logging.info(f"Currently tracking {len(existing_versions)} versions in locker")
 
         for key, forge_version in promos.items():
             if not key.endswith('-latest'):
@@ -316,18 +371,21 @@ Updated download URL or build information for this version.
             try:
                 mc_version_parts = [int(x) for x in mc_version.split('.')]
             except ValueError:
-                print(f"  Skipping weird version: {mc_version}")
+                logging.warning(f"Skipping weird version: {mc_version}")
                 continue
 
-            if mc_version_parts < [1, 2, 5]:
-                print(f"  Skipping Forge for MC {mc_version} (too old - not supported by mcup)")
+            if mc_version_parts < [1, 5, 2]:
+                logging.info(f"Skipping Forge for MC {mc_version} (too old - not supported by mcup / no installer download)")
                 continue
             
-            is_legacy_url = mc_version_parts <= [1, 10, 0]
+            is_legacy_url = ([1, 7, 10] <= mc_version_parts <= [1, 10, 0] and mc_version_parts not in [[1, 8], [1, 8, 8]]) or mc_version_parts == [1, 7, 2]
             
             if is_legacy_url:
                  # e.g. 1.10-12.18.0.2000 -> forge-1.10-12.18.0.2000-1.10.0-installer.jar
-                 mc_version_full = mc_version if len(mc_version_parts) == 3 else f"{mc_version}.0"
+                 if mc_version_parts == [1, 7, 2]:
+                     mc_version_full = "mc172"
+                 else:
+                     mc_version_full = mc_version if len(mc_version_parts) == 3 else f"{mc_version}.0"
                  base_url = f"https://maven.minecraftforge.net/net/minecraftforge/forge/{mc_version}-{forge_version}-{mc_version_full}/"
                  file_name = f"forge-{mc_version}-{forge_version}-{mc_version_full}-installer.jar"
             else:
@@ -370,94 +428,76 @@ Updated download URL or build information for this version.
 
             if mc_version not in existing_versions:
                 changes.append(('forge', mc_version, True, entry))
-                print(f"  NEW: {mc_version} (Forge {forge_version})")
+                logging.info(f"NEW: {mc_version} (Forge {forge_version})")
             elif existing_versions[mc_version].get('installer_url') != installer_url:
                 changes.append(('forge', mc_version, False, entry))
-                print(f"  UPDATE: {mc_version} (Forge {forge_version})")
+                logging.info(f"UPDATE: {mc_version} (Forge {forge_version})")
 
         return changes
 
-    def check_vanilla(self) -> List[Tuple[str, str, bool, dict]]:
-        """Check for new Vanilla Minecraft versions."""
-        print("  Fetching version manifest from Mojang...")
-        url = "https://launchermeta.mojang.com/mc/game/version_manifest.json"
-        response = requests.get(url)
-        data = response.json()
+    def is_url_valid(self, url: str) -> bool:
+        """Check if a URL is valid."""
+        if not url:
+            return False
 
-        existing_versions = self.get_existing_versions('vanilla')
-        changes = []
+        try:
+            response = requests.head(url, allow_redirects=True, timeout=10)
+            if response.status_code == 404:
+                return False
+            if response.status_code in [405, 403]:
+                pass
+            else:
+                return True
+        except requests.RequestException:
+            pass
 
-        print(f"  Found {len(data['versions'])} total versions from Mojang")
-        print(f"  Currently tracking {len(existing_versions)} versions in locker")
-
-        release_count = 0
-        for version_info in data['versions']:
-            if version_info['type'] == 'release':
-                release_count += 1
-                version = version_info['id']
-
-                version_detail = requests.get(version_info['url']).json()
-                if 'server' not in version_detail.get('downloads', {}):
-                    print(f"  WARNING: {version} has no server download available")
-                    continue
-
-                server_url = version_detail['downloads']['server']['url']
-
-                entry = {
-                    "version": version,
-                    "source": "DOWNLOAD",
-                    "server_url": server_url,
-                    "supports_plugins": False,
-                    "supports_mods": False,
-                    "configs": [],
-                    "cleanup": []
-                }
-
-                if version not in existing_versions:
-                    changes.append(('vanilla', version, True, entry))
-                    print(f"  NEW: {version}")
-                elif existing_versions[version].get('server_url') != server_url:
-                    changes.append(('vanilla', version, False, entry))
-                    print(f"  UPDATE: {version} (URL changed)")
-
-        print(f"  Found {release_count} release versions total")
-
-        return changes
+        try:
+            with requests.get(url, stream=True, allow_redirects=True, timeout=10) as response:
+                if response.status_code == 404:
+                    return False
+                return True
+        except requests.RequestException as e:
+            logging.warning(f"Error checking URL {url}: {e}")
+            return False
 
     def run(self):
-        print("Checking for new Vanilla versions...\n")
-        print("=" * 60)
+        logging.info("Checking for new versions...")
 
         try:
             changes = []
             changes.extend(self.check_vanilla())
             changes.extend(self.check_paper())
             changes.extend(self.check_forge())
-            print("=" * 60)
-            print()
-        except Exception as e:
-            print(f"Error checking versions: {e}")
-            import traceback
-            traceback.print_exc()
+        except Exception:
+            logging.exception("Error checking versions")
             return
 
         if not changes:
-            print("No new versions or updates found")
+            logging.info("No new versions or updates found")
             return
 
-        print(f"\nFound {len(changes)} change(s)")
-        print("=" * 60)
+        logging.info(f"Found {len(changes)} change(s)")
 
         for server_type, version, is_new, entry in changes:
             action = "NEW" if is_new else "UPDATE"
-            print(f"\n[{action}] Processing {server_type} {version}...")
+            logging.info(f"[{action}] Processing {server_type} {version}...")
+            
+            check_url = entry.get('server_url') or entry.get('installer_url')
+            if check_url:
+                logging.info(f"Verifying URL: {check_url}")
+                if not self.is_url_valid(check_url):
+                    logging.warning(f"Skipping {server_type} {version}: URL returned 404 or is invalid.")
+                    continue
+            else:
+                logging.warning(f"Skipping {server_type} {version}: No URL found to check.")
+                continue
+
             try:
                 self.create_pr(server_type, version, is_new, entry)
             except Exception as e:
-                print(f"Failed to create PR: {e}")
+                logging.error(f"Failed to create PR: {e}")
 
-        print(f"\n{'=' * 60}")
-        print(f"Completed processing {len(changes)} change(s)")
+        logging.info(f"Completed processing {len(changes)} change(s)")
 
 
 if __name__ == '__main__':

@@ -6073,6 +6073,108 @@
         ],
         "forge": [
             {
+                "version": "1.5.2",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.5.2-7.8.1.738/forge-1.5.2-7.8.1.738-installer.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--installServer"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "forge-1.5.2-7.8.1.738-installer.jar"
+                ]
+            },
+            {
+                "version": "1.6.1",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.1-8.9.0.775/forge-1.6.1-8.9.0.775-installer.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--installServer"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "forge-1.6.1-8.9.0.775-installer.jar"
+                ]
+            },
+            {
+                "version": "1.6.2",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.2-9.10.1.871/forge-1.6.2-9.10.1.871-installer.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--installServer"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "forge-1.6.2-9.10.1.871-installer.jar"
+                ]
+            },
+            {
+                "version": "1.6.3",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.3-9.11.0.878/forge-1.6.3-9.11.0.878-installer.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--installServer"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "forge-1.6.3-9.11.0.878-installer.jar"
+                ]
+            },
+            {
+                "version": "1.6.4",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.4-9.11.1.1345/forge-1.6.4-9.11.1.1345-installer.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--installServer"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "forge-1.6.4-9.11.1.1345-installer.jar"
+                ]
+            },
+            {
+                "version": "1.7.2",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.2-10.12.2.1161-mc172/forge-1.7.2-10.12.2.1161-mc172-installer.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--installServer"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "forge-1.7.2-10.12.2.1161-mc172-installer.jar"
+                ]
+            },
+            {
                 "version": "1.8.9",
                 "source": "INSTALLER",
                 "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar",
@@ -6228,7 +6330,7 @@
             {
                 "version": "1.12.2",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.12.2-14.23.5.2860/forge-1.12.2-14.23.5.2860-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.12.2-14.23.5.2864/forge-1.12.2-14.23.5.2864-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6239,7 +6341,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.12.2-14.23.5.2860-installer.jar"
+                    "forge-1.12.2-14.23.5.2864-installer.jar"
                 ]
             },
             {
@@ -6296,7 +6398,7 @@
             {
                 "version": "1.14.4",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.4-28.2.26/forge-1.14.4-28.2.26-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.4-28.2.27/forge-1.14.4-28.2.27-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6307,7 +6409,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.14.4-28.2.26-installer.jar"
+                    "forge-1.14.4-28.2.27-installer.jar"
                 ]
             },
             {
@@ -6475,7 +6577,7 @@
             {
                 "version": "1.18.2",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.18.2-40.3.11/forge-1.18.2-40.3.11-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.18.2-40.3.12/forge-1.18.2-40.3.12-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6486,7 +6588,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.18.2-40.3.11-installer.jar",
+                    "forge-1.18.2-40.3.12-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -6535,7 +6637,7 @@
             {
                 "version": "1.19.2",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.19.2-43.5.1/forge-1.19.2-43.5.1-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.19.2-43.5.2/forge-1.19.2-43.5.2-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6546,7 +6648,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.19.2-43.5.1-installer.jar",
+                    "forge-1.19.2-43.5.2-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -6575,7 +6677,7 @@
             {
                 "version": "1.19.4",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.19.4-45.4.2/forge-1.19.4-45.4.2-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.19.4-45.4.3/forge-1.19.4-45.4.3-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6586,7 +6688,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.19.4-45.4.2-installer.jar",
+                    "forge-1.19.4-45.4.3-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -6615,7 +6717,7 @@
             {
                 "version": "1.20.1",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.4.6/forge-1.20.1-47.4.6-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.4.13/forge-1.20.1-47.4.13-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6626,7 +6728,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.20.1-47.4.6-installer.jar",
+                    "forge-1.20.1-47.4.13-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -6675,7 +6777,7 @@
             {
                 "version": "1.20.4",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.4-49.2.0/forge-1.20.4-49.2.0-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.4-49.2.4/forge-1.20.4-49.2.4-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6686,7 +6788,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.20.4-49.2.0-installer.jar",
+                    "forge-1.20.4-49.2.4-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -6695,7 +6797,7 @@
             {
                 "version": "1.20.6",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.6-50.2.1/forge-1.20.6-50.2.1-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.6-50.2.4/forge-1.20.6-50.2.4-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6706,7 +6808,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.20.6-50.2.1-installer.jar",
+                    "forge-1.20.6-50.2.4-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -6735,7 +6837,7 @@
             {
                 "version": "1.21.1",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.1.3/forge-1.21.1-52.1.3-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.1.8/forge-1.21.1-52.1.8-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6746,7 +6848,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.21.1-52.1.3-installer.jar",
+                    "forge-1.21.1-52.1.8-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -6755,7 +6857,7 @@
             {
                 "version": "1.21.3",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.3-53.1.2/forge-1.21.3-53.1.2-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.3-53.1.6/forge-1.21.3-53.1.6-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6766,7 +6868,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.21.3-53.1.2-installer.jar",
+                    "forge-1.21.3-53.1.6-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -6775,7 +6877,7 @@
             {
                 "version": "1.21.4",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.4-54.1.6/forge-1.21.4-54.1.6-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.4-54.1.11/forge-1.21.4-54.1.11-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6786,7 +6888,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.21.4-54.1.6-installer.jar",
+                    "forge-1.21.4-54.1.11-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -6795,7 +6897,7 @@
             {
                 "version": "1.21.5",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.5-55.0.24/forge-1.21.5-55.0.24-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.5-55.1.4/forge-1.21.5-55.1.4-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6806,7 +6908,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.21.5-55.0.24-installer.jar",
+                    "forge-1.21.5-55.1.4-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -6855,7 +6957,7 @@
             {
                 "version": "1.21.8",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.8-58.0.8/forge-1.21.8-58.0.8-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.8-58.1.11/forge-1.21.8-58.1.11-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6866,7 +6968,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.21.8-58.0.8-installer.jar",
+                    "forge-1.21.8-58.1.11-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -6895,7 +6997,7 @@
             {
                 "version": "1.21.10",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.10-60.0.18/forge-1.21.10-60.0.18-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.10-60.1.5/forge-1.21.10-60.1.5-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6906,7 +7008,27 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.21.10-60.0.18-installer.jar",
+                    "forge-1.21.10-60.1.5-installer.jar",
+                    "user_jvm_args.txt",
+                    "run.bat",
+                    "run.sh"
+                ]
+            },
+            {
+                "version": "1.21.11",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.11-61.0.3/forge-1.21.11-61.0.3-installer.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--installServer"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "forge-1.21.11-61.0.3-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
