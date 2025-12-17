@@ -6566,6 +6566,23 @@
                 ]
             },
             {
+                "version": "1.16.4",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.4-35.1.37/forge-1.16.4-35.1.37-installer.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--installServer"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "forge-1.16.4-35.1.37-installer.jar"
+                ]
+            },
+            {
                 "version": "1.16.5",
                 "source": "INSTALLER",
                 "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.5-36.2.42/forge-1.16.5-36.2.42-installer.jar",
