@@ -7300,6 +7300,26 @@
                     "run.bat",
                     "run.sh"
                 ]
+            },
+            {
+                "version": "1.21.10",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.10.64/neoforge-21.10.64-installer.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--installServer"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "neoforge-21.10.64-installer.jar",
+                    "user_jvm_args.txt",
+                    "run.bat",
+                    "run.sh"
+                ]
             }
         ]
     }
