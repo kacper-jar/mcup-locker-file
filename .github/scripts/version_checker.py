@@ -378,7 +378,7 @@ Updated download URL or build information for this version.
                 logging.info(f"Skipping Forge for MC {mc_version} (too old - not supported by mcup / no installer download)")
                 continue
             
-            is_legacy_url = [1, 7, 10] <= mc_version_parts <= [1, 10, 0] or mc_version_parts == [1, 7, 2]
+            is_legacy_url = ([1, 7, 10] <= mc_version_parts <= [1, 10, 0] and mc_version_parts not in [[1, 8], [1, 8, 8]]) or mc_version_parts == [1, 7, 2]
             
             if is_legacy_url:
                  # e.g. 1.10-12.18.0.2000 -> forge-1.10-12.18.0.2000-1.10.0-installer.jar
