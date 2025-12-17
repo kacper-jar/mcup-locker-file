@@ -6931,6 +6931,23 @@
                     "run.bat",
                     "run.sh"
                 ]
+            },
+            {
+                "version": "1.6.3",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.6.3-9.11.0.878/forge-1.6.3-9.11.0.878-installer.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--installServer"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "forge-1.6.3-9.11.0.878-installer.jar"
+                ]
             }
         ],
         "neoforge": [
