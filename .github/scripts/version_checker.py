@@ -11,6 +11,7 @@ import requests
 import subprocess
 from datetime import datetime
 from typing import Dict, List, Tuple
+import xml.etree.ElementTree as ET
 
 
 class VersionChecker:
@@ -435,6 +436,114 @@ Updated download URL or build information for this version.
 
         return changes
 
+    def check_neoforge(self) -> List[Tuple[str, str, bool, dict]]:
+        """Check for new NeoForge versions."""
+        logging.info("Fetching metadata from NeoForge...")
+        url = "https://maven.neoforged.net/releases/net/neoforged/neoforge/maven-metadata.xml"
+        try:
+            response = requests.get(url, timeout=15)
+            response.raise_for_status()
+            root = ET.fromstring(response.content)
+        except Exception as e:
+            logging.error(f"Error fetching NeoForge metadata: {e}")
+            return []
+
+        existing_versions = self.get_existing_versions('neoforge')
+        changes = []
+        
+        # Parse versions
+        # Loop through <versioning><versions><version>...</version></versions></versioning>
+        versioning = root.find('versioning')
+        if versioning is None:
+            logging.warning("Could not find versioning tag in NeoForge metadata")
+            return []
+            
+        versions_tag = versioning.find('versions')
+        if versions_tag is None:
+            logging.warning("Could not find versions tag in NeoForge metadata")
+            return []
+
+        all_versions = [v.text for v in versions_tag.findall('version')]
+        logging.info(f"Found {len(all_versions)} total versions from NeoForge")
+        logging.info(f"Currently tracking {len(existing_versions)} versions in locker")
+
+        for neo_version in all_versions:
+            # Filter out beta versions
+            if neo_version.endswith('-beta'):
+                continue
+            
+            # NeoForge version format: 21.0.0 (for MC 1.21) or 20.4.167 (for MC 1.20.4)
+            # We need to derive MC version.
+            # Start with splitting by dot.
+            try:
+                parts = [int(p) for p in neo_version.split('.')]
+            except ValueError:
+                logging.warning(f"Skipping unparseable NeoForge version: {neo_version}")
+                continue
+                
+            # Logic:
+            # 21.x.x -> 1.21.x (Maybe?)
+            # Actually, let's look at recent versions:
+            # 20.4.167 -> MC 1.20.4
+            # 21.0.0-beta -> MC 1.21
+            # 21.1.0-beta -> MC 1.21.1
+            # So rule seems to be: 
+            # 20.4.x -> 1.20.4
+            # 21.1.x -> 1.21.1
+            # 21.0.x -> 1.21 (or 1.21.0)
+            
+            major = parts[0]
+            minor = parts[1]
+            
+            if major >= 20: 
+                # Modern NeoForge versioning
+                # major corresponds to MC minor version (e.g. 20 -> 1.20, 21 -> 1.21)
+                # minor corresponds to MC patch version (e.g. 4 -> .4, 0 -> .0 or empty)
+                
+                mc_major = 1
+                mc_minor = major
+                mc_patch = minor
+                
+                if mc_patch == 0:
+                    mc_version = f"{mc_major}.{mc_minor}"
+                else:
+                    mc_version = f"{mc_major}.{mc_minor}.{mc_patch}"
+            else:
+                logging.warning(f"Skipping unknown NeoForge version format: {neo_version}")
+                continue
+
+            installer_url = f"https://maven.neoforged.net/releases/net/neoforged/neoforge/{neo_version}/neoforge-{neo_version}-installer.jar"
+            
+            entry = {
+                "version": mc_version,
+                "source": "INSTALLER",
+                "installer_url": installer_url,
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--installServer"
+                ],
+                "supports_plugins": False,
+                "supports_mods": True,
+                "configs": [],
+                "cleanup": [
+                    f"neoforge-{neo_version}-installer.jar",
+                    "user_jvm_args.txt",
+                    "run.bat",
+                    "run.sh"
+                ]
+            }
+
+            if mc_version not in existing_versions:
+                changes.append(('neoforge', mc_version, True, entry))
+                logging.info(f"NEW: {mc_version} (NeoForge {neo_version})")
+            elif existing_versions[mc_version].get('installer_url') != installer_url:
+                changes.append(('neoforge', mc_version, False, entry))
+                logging.info(f"UPDATE: {mc_version} (NeoForge {neo_version})")
+
+        return changes
+
     def is_url_valid(self, url: str) -> bool:
         """Check if a URL is valid."""
         if not url:
@@ -468,6 +577,7 @@ Updated download URL or build information for this version.
             changes.extend(self.check_vanilla())
             changes.extend(self.check_paper())
             changes.extend(self.check_forge())
+            changes.extend(self.check_neoforge())
         except Exception:
             logging.exception("Error checking versions")
             return
