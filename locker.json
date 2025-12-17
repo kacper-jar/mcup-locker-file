@@ -7144,7 +7144,7 @@
             {
                 "version": "1.20.4",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/20.4.250/neoforge-20.4.250-installer.jar",
+                "installer_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/20.4.167/neoforge-20.4.167-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -7155,7 +7155,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "neoforge-20.4.250-installer.jar",
+                    "neoforge-20.4.167-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
