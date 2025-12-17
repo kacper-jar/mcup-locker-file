@@ -6931,6 +6931,23 @@
                     "run.bat",
                     "run.sh"
                 ]
+            },
+            {
+                "version": "1.8.8",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.8-11.15.0.1655/forge-1.8.8-11.15.0.1655-installer.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--installServer"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "forge-1.8.8-11.15.0.1655-installer.jar"
+                ]
             }
         ],
         "neoforge": [
