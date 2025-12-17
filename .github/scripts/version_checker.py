@@ -465,6 +465,8 @@ Updated download URL or build information for this version.
         logging.info(f"Found {len(all_versions)} total versions from NeoForge")
         logging.info(f"Currently tracking {len(existing_versions)} versions in locker")
 
+        latest_versions: Dict[str, str] = {}
+
         for neo_version in all_versions:
             if neo_version.endswith('-beta'):
                 continue
@@ -477,7 +479,9 @@ Updated download URL or build information for this version.
             
             major = parts[0]
             minor = parts[1]
+            patch = parts[2] if len(parts) > 2 else 0
             
+            mc_version = None
             if major >= 20: 
                 mc_major = 1
                 mc_minor = major
@@ -487,10 +491,25 @@ Updated download URL or build information for this version.
                     mc_version = f"{mc_major}.{mc_minor}"
                 else:
                     mc_version = f"{mc_major}.{mc_minor}.{mc_patch}"
-            else:
+            
+            if not mc_version:
                 logging.warning(f"Skipping unknown NeoForge version format: {neo_version}")
                 continue
 
+            if mc_version not in latest_versions:
+                latest_versions[mc_version] = neo_version
+            else:
+                current_latest = latest_versions[mc_version]
+                try:
+                    curr_parts = [int(p) for p in current_latest.split('.')]
+                    new_parts = [int(p) for p in neo_version.split('.')]
+                    
+                    if new_parts > curr_parts:
+                        latest_versions[mc_version] = neo_version
+                except ValueError:
+                    pass
+
+        for mc_version, neo_version in latest_versions.items():
             installer_url = f"https://maven.neoforged.net/releases/net/neoforged/neoforge/{neo_version}/neoforge-{neo_version}-installer.jar"
             
             entry = {
