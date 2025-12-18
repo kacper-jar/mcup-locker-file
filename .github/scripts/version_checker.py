@@ -10,7 +10,7 @@ import logging
 import requests
 import subprocess
 from datetime import datetime
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Optional
 import xml.etree.ElementTree as ET
 
 
@@ -111,13 +111,18 @@ class VersionChecker:
             
         return closed_pr_msg
 
-    def create_pr(self, server_type: str, version: str, is_new: bool, entry: dict):
+    def create_pr(self, server_type: str, version: str, is_new: bool, entry: dict, display_version: Optional[str] = None):
         """Create a PR for a single version change."""
         self.run_command(['git', 'checkout', 'main'])
         self.run_command(['git', 'pull', 'origin', 'main'])
 
+        if display_version and display_version != version:
+            title_suffix = f" ({display_version})"
+        else:
+            title_suffix = ""
+
         action = "new" if is_new else "update"
-        pr_title = f"Add {server_type.capitalize()} {version}" if is_new else f"Update {server_type.capitalize()} {version}"
+        pr_title = f"Add {server_type.capitalize()} {version}{title_suffix}" if is_new else f"Update {server_type.capitalize()} {version}{title_suffix}"
 
         if self.has_open_pr(pr_title):
             logging.info(f"Skipping PR creation: an open PR already exists with title '{pr_title}'")
@@ -212,7 +217,7 @@ Updated download URL or build information for this version.
         else:
             logging.error(f"Failed to create PR for {server_type} {version}")
 
-    def check_vanilla(self) -> List[Tuple[str, str, bool, dict]]:
+    def check_vanilla(self) -> List[Tuple[str, str, bool, dict, Optional[str]]]:
         """Check for new Vanilla Minecraft versions."""
         logging.info("Fetching version manifest from Mojang...")
         url = "https://launchermeta.mojang.com/mc/game/version_manifest.json"
@@ -249,17 +254,17 @@ Updated download URL or build information for this version.
                 }
 
                 if version not in existing_versions:
-                    changes.append(('vanilla', version, True, entry))
+                    changes.append(('vanilla', version, True, entry, None))
                     logging.info(f"NEW: {version}")
                 elif existing_versions[version].get('server_url') != server_url:
-                    changes.append(('vanilla', version, False, entry))
+                    changes.append(('vanilla', version, False, entry, None))
                     logging.info(f"UPDATE: {version} (URL changed)")
 
         logging.info(f"Found {release_count} release versions total")
 
         return changes
 
-    def check_paper(self) -> List[Tuple[str, str, bool, dict]]:
+    def check_paper(self) -> List[Tuple[str, str, bool, dict, Optional[str]]]:
         """Check for new PaperMC versions."""
         logging.info("Fetching version manifest from PaperMC...")
         url = "https://api.papermc.io/v2/projects/paper"
@@ -336,15 +341,15 @@ Updated download URL or build information for this version.
             }
 
             if version not in existing_versions:
-                changes.append(('paper', version, True, entry))
+                changes.append(('paper', version, True, entry, str(build_number)))
                 logging.info(f"NEW: {version}")
             elif existing_versions[version].get('server_url') != server_url:
-                changes.append(('paper', version, False, entry))
+                changes.append(('paper', version, False, entry, str(build_number)))
                 logging.info(f"UPDATE: {version} (New build {build_number})")
 
         return changes
 
-    def check_forge(self) -> List[Tuple[str, str, bool, dict]]:
+    def check_forge(self) -> List[Tuple[str, str, bool, dict, Optional[str]]]:
         """Check for new Forge versions."""
         logging.info("Fetching promotions from Forge...")
         url = "https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json"
@@ -428,15 +433,15 @@ Updated download URL or build information for this version.
             }
 
             if mc_version not in existing_versions:
-                changes.append(('forge', mc_version, True, entry))
+                changes.append(('forge', mc_version, True, entry, str(forge_version)))
                 logging.info(f"NEW: {mc_version} (Forge {forge_version})")
             elif existing_versions[mc_version].get('installer_url') != installer_url:
-                changes.append(('forge', mc_version, False, entry))
+                changes.append(('forge', mc_version, False, entry, str(forge_version)))
                 logging.info(f"UPDATE: {mc_version} (Forge {forge_version})")
 
         return changes
 
-    def check_neoforge(self) -> List[Tuple[str, str, bool, dict]]:
+    def check_neoforge(self) -> List[Tuple[str, str, bool, dict, Optional[str]]]:
         """Check for new NeoForge versions."""
         logging.info("Fetching metadata from NeoForge...")
         url = "https://maven.neoforged.net/releases/net/neoforged/neoforge/maven-metadata.xml"
@@ -534,10 +539,10 @@ Updated download URL or build information for this version.
             }
 
             if mc_version not in existing_versions:
-                changes.append(('neoforge', mc_version, True, entry))
+                changes.append(('neoforge', mc_version, True, entry, str(neo_version)))
                 logging.info(f"NEW: {mc_version} (NeoForge {neo_version})")
             elif existing_versions[mc_version].get('installer_url') != installer_url:
-                changes.append(('neoforge', mc_version, False, entry))
+                changes.append(('neoforge', mc_version, False, entry, str(neo_version)))
                 logging.info(f"UPDATE: {mc_version} (NeoForge {neo_version})")
 
         return changes
@@ -586,7 +591,7 @@ Updated download URL or build information for this version.
 
         logging.info(f"Found {len(changes)} change(s)")
 
-        for server_type, version, is_new, entry in changes:
+        for server_type, version, is_new, entry, display_version in changes:
             action = "NEW" if is_new else "UPDATE"
             logging.info(f"[{action}] Processing {server_type} {version}...")
             
@@ -601,7 +606,7 @@ Updated download URL or build information for this version.
                 continue
 
             try:
-                self.create_pr(server_type, version, is_new, entry)
+                self.create_pr(server_type, version, is_new, entry, display_version)
             except Exception as e:
                 logging.error(f"Failed to create PR: {e}")
 
