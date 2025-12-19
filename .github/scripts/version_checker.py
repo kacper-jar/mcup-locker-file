@@ -348,6 +348,79 @@ Updated download URL or build information for this version.
                 logging.info(f"UPDATE: {version} (New build {build_number})")
 
         return changes
+    
+    def check_fabric(self) -> List[Tuple[str, str, bool, dict, Optional[str]]]:
+        """Check for new Fabric versions."""
+        logging.info("Fetching game versions from Fabric...")
+        game_url = "https://meta.fabricmc.net/v2/versions/game"
+        loader_url = "https://meta.fabricmc.net/v2/versions/installer"
+        
+        try:
+            game_resp = requests.get(game_url, timeout=15)
+            game_resp.raise_for_status()
+            game_versions = game_resp.json()
+            
+            installer_resp = requests.get(loader_url, timeout=15)
+            installer_resp.raise_for_status()
+            installer_versions = installer_resp.json()
+        except Exception as e:
+            logging.error(f"Error fetching Fabric metadata: {e}")
+            return []
+
+        latest_installer = None
+        for installer in installer_versions:
+            if installer.get('stable'):
+                latest_installer = installer
+                break
+        
+        if not latest_installer:
+             logging.warning("No stable Fabric installer found")
+             return []
+
+        installer_url = latest_installer['url']
+        installer_version = latest_installer['version']
+        installer_name = f"fabric-installer-{installer_version}.jar"
+
+        existing_versions = self.get_existing_versions('fabric')
+        changes = []
+        
+        logging.info(f"Found {len(game_versions)} total game versions from Fabric")
+        logging.info(f"Currently tracking {len(existing_versions)} versions in locker")
+
+        for game_version_info in game_versions:
+            if not game_version_info.get('stable'):
+                continue
+            
+            version = game_version_info['version']
+            
+            entry = {
+                "version": version,
+                "source": "INSTALLER",
+                "installer_url": installer_url,
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "server",
+                    "-mcversion",
+                    "%version",
+                    "-downloadMinecraft",
+                    "-noprofile"
+                ],
+                "supports_plugins": False,
+                "supports_mods": True,
+                "configs": [],
+                "cleanup": [installer_name]
+            }
+
+            if version not in existing_versions:
+                changes.append(('fabric', version, True, entry, None))
+                logging.info(f"NEW: {version} (Fabric)")
+            elif existing_versions[version].get('installer_url') != installer_url:
+                changes.append(('fabric', version, False, entry, None))
+                logging.info(f"UPDATE: {version} (New Fabric Installer {installer_version})")
+
+        return changes
 
     def check_forge(self) -> List[Tuple[str, str, bool, dict, Optional[str]]]:
         """Check for new Forge versions."""
@@ -579,6 +652,7 @@ Updated download URL or build information for this version.
             changes = []
             changes.extend(self.check_vanilla())
             changes.extend(self.check_paper())
+            changes.extend(self.check_fabric())
             changes.extend(self.check_forge())
             changes.extend(self.check_neoforge())
         except Exception:
