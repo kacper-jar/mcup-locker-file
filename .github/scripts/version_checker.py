@@ -421,6 +421,74 @@ Updated download URL or build information for this version.
                 logging.info(f"UPDATE: {version} (New Fabric Installer {installer_version})")
 
         return changes
+    
+    def check_quilt(self) -> List[Tuple[str, str, bool, dict, Optional[str]]]:
+        """Check for new Quilt versions."""
+        logging.info("Fetching game versions from Quilt...")
+        game_url = "https://meta.quiltmc.org/v3/versions/game"
+        loader_url = "https://meta.quiltmc.org/v3/versions/installer"
+        
+        try:
+            game_resp = requests.get(game_url, timeout=15)
+            game_resp.raise_for_status()
+            game_versions = game_resp.json()
+            
+            installer_resp = requests.get(loader_url, timeout=15)
+            installer_resp.raise_for_status()
+            installer_versions = installer_resp.json()
+        except Exception as e:
+            logging.error(f"Error fetching Quilt metadata: {e}")
+            return []
+
+        if not installer_versions:
+             logging.warning("No Quilt installer versions found")
+             return []
+
+        latest_installer = installer_versions[0]
+        installer_url = latest_installer['url']
+        installer_version = latest_installer['version']
+        installer_name = f"quilt-installer-{installer_version}.jar"
+
+        existing_versions = self.get_existing_versions('quilt')
+        changes = []
+        
+        logging.info(f"Found {len(game_versions)} total game versions from Quilt")
+        logging.info(f"Currently tracking {len(existing_versions)} versions in locker")
+
+        for game_version_info in game_versions:
+            if not game_version_info.get('stable'):
+                continue
+            
+            version = game_version_info['version']
+            
+            entry = {
+                "version": version,
+                "source": "INSTALLER",
+                "installer_url": installer_url,
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "install",
+                    "server",
+                    "%version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": False,
+                "supports_mods": True,
+                "configs": [],
+                "cleanup": [installer_name]
+            }
+
+            if version not in existing_versions:
+                changes.append(('quilt', version, True, entry, None))
+                logging.info(f"NEW: {version} (Quilt)")
+            elif existing_versions[version].get('installer_url') != installer_url:
+                changes.append(('quilt', version, False, entry, None))
+                logging.info(f"UPDATE: {version} (New Quilt Installer {installer_version})")
+
+        return changes
 
     def check_forge(self) -> List[Tuple[str, str, bool, dict, Optional[str]]]:
         """Check for new Forge versions."""
@@ -653,6 +721,7 @@ Updated download URL or build information for this version.
             changes.extend(self.check_vanilla())
             changes.extend(self.check_paper())
             changes.extend(self.check_fabric())
+            changes.extend(self.check_quilt())
             changes.extend(self.check_forge())
             changes.extend(self.check_neoforge())
         except Exception:
