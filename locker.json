@@ -6548,7 +6548,7 @@
             {
                 "version": "1.14.4",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.4-28.2.27/forge-1.14.4-28.2.27-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.14.4-28.2.28/forge-1.14.4-28.2.28-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6559,7 +6559,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.14.4-28.2.27-installer.jar"
+                    "forge-1.14.4-28.2.28-installer.jar"
                 ]
             },
             {
