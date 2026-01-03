@@ -5288,7 +5288,7 @@
             {
                 "version": "1.21.9",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5303,7 +5303,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
