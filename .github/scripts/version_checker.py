@@ -97,7 +97,7 @@ class VersionChecker:
             
             for pr in resp.json():
                 title = pr.get("title", "")
-                if title.startswith(target_title_start):
+                if title == target_title_start or title.startswith(f"{target_title_start} "):
                     pr_number = pr.get("number")
                     logging.info(f"Closing outdated PR #{pr_number}: {title}")
                     
