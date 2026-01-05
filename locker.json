@@ -4442,6 +4442,20 @@
                     "paper-world-defaults"
                 ],
                 "cleanup": []
+            },
+            {
+                "version": "1.21.11",
+                "source": "DOWNLOAD",
+                "server_url": "https://api.papermc.io/v2/projects/paper/versions/1.21.11/builds/69/downloads/paper-1.21.11-69.jar",
+                "supports_plugins": true,
+                "supports_mods": false,
+                "configs": [
+                    "bukkit",
+                    "spigot",
+                    "paper-global",
+                    "paper-world-defaults"
+                ],
+                "cleanup": []
             }
         ],
         "fabric": [
