@@ -6995,7 +6995,7 @@
             {
                 "version": "1.20.6",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.6-50.2.4/forge-1.20.6-50.2.4-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.6-50.2.6/forge-1.20.6-50.2.6-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -7006,7 +7006,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.20.6-50.2.4-installer.jar",
+                    "forge-1.20.6-50.2.6-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
