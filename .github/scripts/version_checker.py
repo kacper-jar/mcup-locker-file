@@ -78,7 +78,7 @@ class VersionChecker:
             logging.warning(f"Failed to check existing PRs: {e}")
         return False
 
-    def close_outdated_pr(self, server_type: str, version: str) -> str:
+    def close_outdated_pr(self, server_type: str, version: str, exclude_title: Optional[str] = None) -> str:
         """
         Close any existing open PR for the same server_type and version.
         Returns a message string to append to the new PR body if one was closed.
@@ -104,6 +104,9 @@ class VersionChecker:
                 title = pr.get("title", "")
                 if (title == target_start_update or title.startswith(f"{target_start_update} ") or
                         title == target_start_add or title.startswith(f"{target_start_add} ")):
+                    if exclude_title and title == exclude_title:
+                        continue
+                    
                     pr_number = pr.get("number")
                     logging.info(f"Closing outdated PR #{pr_number}: {title}")
 
@@ -137,6 +140,7 @@ class VersionChecker:
         if self.has_matching_open_pr(pr_title, current_url):
             logging.info(
                 f"Skipping PR creation: an open PR already exists with title '{pr_title}' and identical content")
+            self.close_outdated_pr(server_type, version, exclude_title=pr_title)
             return
 
         branch_name = f"auto-{action}-{server_type}-{version}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
