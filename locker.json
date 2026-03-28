@@ -4442,13 +4442,27 @@
                     "paper-world-defaults"
                 ],
                 "cleanup": []
+            },
+            {
+                "version": "1.21.11",
+                "source": "DOWNLOAD",
+                "server_url": "https://api.papermc.io/v2/projects/paper/versions/1.21.11/builds/69/downloads/paper-1.21.11-69.jar",
+                "supports_plugins": true,
+                "supports_mods": false,
+                "configs": [
+                    "bukkit",
+                    "spigot",
+                    "paper-global",
+                    "paper-world-defaults"
+                ],
+                "cleanup": []
             }
         ],
         "fabric": [
             {
                 "version": "1.14",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4463,13 +4477,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.14.1",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4484,13 +4498,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.14.2",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4505,13 +4519,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.14.3",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4526,13 +4540,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.14.4",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4547,13 +4561,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.15",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4568,13 +4582,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.15.1",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4589,13 +4603,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.15.2",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4610,13 +4624,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.16",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4631,13 +4645,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.16.1",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4652,13 +4666,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.16.2",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4673,13 +4687,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.16.3",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4694,13 +4708,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.16.4",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4715,13 +4729,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.16.5",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4736,13 +4750,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.17",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4757,13 +4771,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.17.1",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4778,13 +4792,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.18",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4799,13 +4813,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.18.1",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4820,13 +4834,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.18.2",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4841,13 +4855,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.19",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4862,13 +4876,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.19.1",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4883,13 +4897,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.19.2",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4904,13 +4918,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.19.3",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4925,13 +4939,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.19.4",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4946,13 +4960,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.20",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4967,13 +4981,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.20.1",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -4988,13 +5002,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.20.2",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5009,13 +5023,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.20.3",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5030,13 +5044,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.20.4",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5051,13 +5065,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.20.5",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5072,13 +5086,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.20.6",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5093,13 +5107,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.21",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5114,13 +5128,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.21.1",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5135,13 +5149,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.21.2",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5156,13 +5170,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.21.3",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5177,13 +5191,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.21.4",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5198,13 +5212,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.21.5",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5219,13 +5233,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.21.6",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5240,13 +5254,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.21.7",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5261,13 +5275,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.21.8",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5282,13 +5296,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.21.9",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5303,13 +5317,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.21.10",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5324,13 +5338,13 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             },
             {
                 "version": "1.21.11",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.0/fabric-installer-1.1.0.jar",
+                "installer_url": "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.1.1/fabric-installer-1.1.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5345,7 +5359,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "fabric-installer-1.1.0.jar"
+                    "fabric-installer-1.1.1.jar"
                 ]
             }
         ],
@@ -6901,7 +6915,7 @@
             {
                 "version": "1.20.1",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.4.13/forge-1.20.1-47.4.13-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.4.18/forge-1.20.1-47.4.18-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6912,7 +6926,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.20.1-47.4.13-installer.jar",
+                    "forge-1.20.1-47.4.18-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -6961,7 +6975,7 @@
             {
                 "version": "1.20.4",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.4-49.2.4/forge-1.20.4-49.2.4-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.4-49.2.7/forge-1.20.4-49.2.7-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6972,7 +6986,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.20.4-49.2.4-installer.jar",
+                    "forge-1.20.4-49.2.7-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -6981,7 +6995,7 @@
             {
                 "version": "1.20.6",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.6-50.2.4/forge-1.20.6-50.2.4-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.6-50.2.8/forge-1.20.6-50.2.8-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -6992,7 +7006,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.20.6-50.2.4-installer.jar",
+                    "forge-1.20.6-50.2.8-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -7021,7 +7035,7 @@
             {
                 "version": "1.21.1",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.1.8/forge-1.21.1-52.1.8-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.1.14/forge-1.21.1-52.1.14-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -7032,7 +7046,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.21.1-52.1.8-installer.jar",
+                    "forge-1.21.1-52.1.14-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -7041,7 +7055,7 @@
             {
                 "version": "1.21.3",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.3-53.1.6/forge-1.21.3-53.1.6-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.3-53.1.10/forge-1.21.3-53.1.10-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -7052,7 +7066,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.21.3-53.1.6-installer.jar",
+                    "forge-1.21.3-53.1.10-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -7061,7 +7075,7 @@
             {
                 "version": "1.21.4",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.4-54.1.11/forge-1.21.4-54.1.11-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.4-54.1.16/forge-1.21.4-54.1.16-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -7072,7 +7086,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.21.4-54.1.11-installer.jar",
+                    "forge-1.21.4-54.1.16-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -7081,7 +7095,7 @@
             {
                 "version": "1.21.5",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.5-55.1.4/forge-1.21.5-55.1.4-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.5-55.1.10/forge-1.21.5-55.1.10-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -7092,7 +7106,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.21.5-55.1.4-installer.jar",
+                    "forge-1.21.5-55.1.10-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -7141,7 +7155,7 @@
             {
                 "version": "1.21.8",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.8-58.1.11/forge-1.21.8-58.1.11-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.8-58.1.18/forge-1.21.8-58.1.18-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -7152,7 +7166,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.21.8-58.1.11-installer.jar",
+                    "forge-1.21.8-58.1.18-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -7181,7 +7195,7 @@
             {
                 "version": "1.21.10",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.10-60.1.5/forge-1.21.10-60.1.5-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.10-60.1.9/forge-1.21.10-60.1.9-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -7192,7 +7206,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.21.10-60.1.5-installer.jar",
+                    "forge-1.21.10-60.1.9-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -7201,7 +7215,7 @@
             {
                 "version": "1.21.11",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.11-61.0.3/forge-1.21.11-61.0.3-installer.jar",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.11-61.1.5/forge-1.21.11-61.1.5-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -7212,7 +7226,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "forge-1.21.11-61.0.3-installer.jar",
+                    "forge-1.21.11-61.1.5-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
@@ -7303,7 +7317,7 @@
             {
                 "version": "1.21.1",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.217/neoforge-21.1.217-installer.jar",
+                "installer_url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.220/neoforge-21.1.220-installer.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -7314,7 +7328,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "neoforge-21.1.217-installer.jar",
+                    "neoforge-21.1.220-installer.jar",
                     "user_jvm_args.txt",
                     "run.bat",
                     "run.sh"
