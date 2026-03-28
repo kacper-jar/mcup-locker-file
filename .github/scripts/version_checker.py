@@ -24,7 +24,7 @@ class VersionChecker:
 
         self.locker_file = locker_file
         self.locker_data = self.load_locker()
-        
+
         self.github_token = os.environ.get('GITHUB_TOKEN')
         self.repo = os.environ.get('GITHUB_REPOSITORY', '')
 
@@ -54,8 +54,8 @@ class VersionChecker:
             logging.error(f"Error: {e.stderr}")
             return False
 
-    def has_open_pr(self, title: str) -> bool:
-        """Return True if there is already an open PR with the given title."""
+    def has_matching_open_pr(self, title: str, current_url: str) -> bool:
+        """Return True if there is already an open PR with the exact title and body containing the url."""
         if not self.repo:
             return False
 
@@ -69,14 +69,18 @@ class VersionChecker:
             resp.raise_for_status()
             for pr in resp.json():
                 if pr.get("title") == title:
-                    return True
+                    body = pr.get("body", "")
+                    if current_url and current_url in body:
+                        return True
+                    elif not current_url:
+                        return True
         except Exception as e:
             logging.warning(f"Failed to check existing PRs: {e}")
         return False
 
     def close_outdated_pr(self, server_type: str, version: str) -> str:
         """
-        Close any existing open PR for the same server_type and version but different content.
+        Close any existing open PR for the same server_type and version.
         Returns a message string to append to the new PR body if one was closed.
         """
         if not self.repo:
@@ -88,30 +92,33 @@ class VersionChecker:
 
         url = f"https://api.github.com/repos/{self.repo}/pulls?state=open&per_page=100"
         closed_pr_msg = ""
-        
+
         try:
             resp = requests.get(url, headers=headers, timeout=15)
             resp.raise_for_status()
-            
-            target_title_start = f"Update {server_type.capitalize()} {version}"
-            
+
+            target_start_update = f"Update {server_type.capitalize()} {version}"
+            target_start_add = f"Add {server_type.capitalize()} {version}"
+
             for pr in resp.json():
                 title = pr.get("title", "")
-                if title == target_title_start or title.startswith(f"{target_title_start} "):
+                if (title == target_start_update or title.startswith(f"{target_start_update} ") or
+                        title == target_start_add or title.startswith(f"{target_start_add} ")):
                     pr_number = pr.get("number")
                     logging.info(f"Closing outdated PR #{pr_number}: {title}")
-                    
+
                     close_url = f"https://api.github.com/repos/{self.repo}/pulls/{pr_number}"
                     requests.patch(close_url, headers=headers, json={"state": "closed"}, timeout=15)
-                    
+
                     closed_pr_msg += f"\nCloses #{pr_number}"
-                    
+
         except Exception as e:
             logging.warning(f"Failed to close outdated PRs: {e}")
-            
+
         return closed_pr_msg
 
-    def create_pr(self, server_type: str, version: str, is_new: bool, entry: dict, display_version: Optional[str] = None):
+    def create_pr(self, server_type: str, version: str, is_new: bool, entry: dict,
+                  display_version: Optional[str] = None):
         """Create a PR for a single version change."""
         self.run_command(['git', 'checkout', 'main'])
         self.run_command(['git', 'pull', 'origin', 'main'])
@@ -122,10 +129,14 @@ class VersionChecker:
             title_suffix = ""
 
         action = "new" if is_new else "update"
-        pr_title = f"Add {server_type.capitalize()} {version}{title_suffix}" if is_new else f"Update {server_type.capitalize()} {version}{title_suffix}"
+        action_word = "Add" if is_new else "Update"
+        pr_title = f"{action_word} {server_type.capitalize()} {version}{title_suffix}"
 
-        if self.has_open_pr(pr_title):
-            logging.info(f"Skipping PR creation: an open PR already exists with title '{pr_title}'")
+        current_url = entry.get('server_url') or entry.get('installer_url')
+
+        if self.has_matching_open_pr(pr_title, current_url):
+            logging.info(
+                f"Skipping PR creation: an open PR already exists with title '{pr_title}' and identical content")
             return
 
         branch_name = f"auto-{action}-{server_type}-{version}-{datetime.now().strftime('%Y%m%d-%H%M%S')}"
@@ -157,7 +168,7 @@ class VersionChecker:
 
 ### Download URL
 ```
-{entry.get('server_url') or entry.get('installer_url', 'N/A')}
+{current_url or 'N/A'}
 ```
 
 ---
@@ -182,15 +193,16 @@ Updated download URL or build information for this version.
 
 ### New URL
 ```
-{entry.get('server_url') or entry.get('installer_url', 'N/A')}
+{current_url or 'N/A'}
 ```
 
 ---
 *This PR was automatically created by the version checker workflow.*
 """
-            closed_note = self.close_outdated_pr(server_type, version)
-            if closed_note:
-                pr_body += f"\n\n{closed_note}"
+
+        closed_note = self.close_outdated_pr(server_type, version)
+        if closed_note:
+            pr_body += f"\n\n{closed_note}"
 
         self.save_locker()
 
@@ -300,9 +312,9 @@ Updated download URL or build information for this version.
             if not builds:
                 logging.warning(f"{version} has no builds available")
                 continue
-            
+
             stable_builds = [b for b in builds if b.get('channel') == 'default']
-            
+
             if not stable_builds:
                 continue
 
@@ -310,7 +322,7 @@ Updated download URL or build information for this version.
             build_number = latest_build.get('build')
             downloads = latest_build.get('downloads', {})
             app_download = downloads.get('application', {})
-            
+
             if not app_download:
                 logging.warning(f"{version} build {build_number} has no application download")
                 continue
@@ -323,11 +335,12 @@ Updated download URL or build information for this version.
                 parts = [int(p) for p in version.split('.')]
 
                 if parts[0] == 1 and parts[1] >= 19:
-                     configs = ['bukkit', 'spigot', 'paper-global', 'paper-world-defaults']
+                    configs = ['bukkit', 'spigot', 'paper-global', 'paper-world-defaults']
                 else:
                     configs = ['bukkit', 'spigot', 'paper']
             except ValueError:
-                logging.warning(f"Could not parse version {version} for config determination, defaulting to old configs")
+                logging.warning(
+                    f"Could not parse version {version} for config determination, defaulting to old configs")
                 configs = ['bukkit', 'spigot', 'paper']
 
             entry = {
@@ -348,18 +361,18 @@ Updated download URL or build information for this version.
                 logging.info(f"UPDATE: {version} (New build {build_number})")
 
         return changes
-    
+
     def check_fabric(self) -> List[Tuple[str, str, bool, dict, Optional[str]]]:
         """Check for new Fabric versions."""
         logging.info("Fetching game versions from Fabric...")
         game_url = "https://meta.fabricmc.net/v2/versions/game"
         loader_url = "https://meta.fabricmc.net/v2/versions/installer"
-        
+
         try:
             game_resp = requests.get(game_url, timeout=15)
             game_resp.raise_for_status()
             game_versions = game_resp.json()
-            
+
             installer_resp = requests.get(loader_url, timeout=15)
             installer_resp.raise_for_status()
             installer_versions = installer_resp.json()
@@ -372,10 +385,10 @@ Updated download URL or build information for this version.
             if installer.get('stable'):
                 latest_installer = installer
                 break
-        
+
         if not latest_installer:
-             logging.warning("No stable Fabric installer found")
-             return []
+            logging.warning("No stable Fabric installer found")
+            return []
 
         installer_url = latest_installer['url']
         installer_version = latest_installer['version']
@@ -383,16 +396,16 @@ Updated download URL or build information for this version.
 
         existing_versions = self.get_existing_versions('fabric')
         changes = []
-        
+
         logging.info(f"Found {len(game_versions)} total game versions from Fabric")
         logging.info(f"Currently tracking {len(existing_versions)} versions in locker")
 
         for game_version_info in game_versions:
             if not game_version_info.get('stable'):
                 continue
-            
+
             version = game_version_info['version']
-            
+
             entry = {
                 "version": version,
                 "source": "INSTALLER",
@@ -421,18 +434,18 @@ Updated download URL or build information for this version.
                 logging.info(f"UPDATE: {version} (New Fabric Installer {installer_version})")
 
         return changes
-    
+
     def check_quilt(self) -> List[Tuple[str, str, bool, dict, Optional[str]]]:
         """Check for new Quilt versions."""
         logging.info("Fetching game versions from Quilt...")
         game_url = "https://meta.quiltmc.org/v3/versions/game"
         loader_url = "https://meta.quiltmc.org/v3/versions/installer"
-        
+
         try:
             game_resp = requests.get(game_url, timeout=15)
             game_resp.raise_for_status()
             game_versions = game_resp.json()
-            
+
             installer_resp = requests.get(loader_url, timeout=15)
             installer_resp.raise_for_status()
             installer_versions = installer_resp.json()
@@ -441,8 +454,8 @@ Updated download URL or build information for this version.
             return []
 
         if not installer_versions:
-             logging.warning("No Quilt installer versions found")
-             return []
+            logging.warning("No Quilt installer versions found")
+            return []
 
         latest_installer = installer_versions[0]
         installer_url = latest_installer['url']
@@ -451,16 +464,16 @@ Updated download URL or build information for this version.
 
         existing_versions = self.get_existing_versions('quilt')
         changes = []
-        
+
         logging.info(f"Found {len(game_versions)} total game versions from Quilt")
         logging.info(f"Currently tracking {len(existing_versions)} versions in locker")
 
         for game_version_info in game_versions:
             if not game_version_info.get('stable'):
                 continue
-            
+
             version = game_version_info['version']
-            
+
             entry = {
                 "version": version,
                 "source": "INSTALLER",
@@ -505,16 +518,16 @@ Updated download URL or build information for this version.
         existing_versions = self.get_existing_versions('forge')
         changes = []
         promos = data.get('promos', {})
-        
+
         logging.info(f"Found {len(promos)} total promo entries from Forge")
         logging.info(f"Currently tracking {len(existing_versions)} versions in locker")
 
         for key, forge_version in promos.items():
             if not key.endswith('-latest'):
                 continue
-                
+
             mc_version = key.replace('-latest', '')
-            
+
             try:
                 mc_version_parts = [int(x) for x in mc_version.split('.')]
             except ValueError:
@@ -522,34 +535,35 @@ Updated download URL or build information for this version.
                 continue
 
             if mc_version_parts < [1, 5, 2]:
-                logging.info(f"Skipping Forge for MC {mc_version} (too old - not supported by mcup / no installer download)")
+                logging.info(
+                    f"Skipping Forge for MC {mc_version} (too old - not supported by mcup / no installer download)")
                 continue
-            
-            is_legacy_url = ([1, 7, 10] <= mc_version_parts <= [1, 10, 0] and mc_version_parts not in [[1, 8], [1, 8, 8]]) or mc_version_parts == [1, 7, 2]
-            
+
+            is_legacy_url = ([1, 7, 10] <= mc_version_parts <= [1, 10, 0] and mc_version_parts not in [[1, 8], [1, 8,8]]) or mc_version_parts == [1, 7, 2]
+
             if is_legacy_url:
-                 # e.g. 1.10-12.18.0.2000 -> forge-1.10-12.18.0.2000-1.10.0-installer.jar
-                 if mc_version_parts == [1, 7, 2]:
-                     mc_version_full = "mc172"
-                 else:
-                     mc_version_full = mc_version if len(mc_version_parts) == 3 else f"{mc_version}.0"
-                 base_url = f"https://maven.minecraftforge.net/net/minecraftforge/forge/{mc_version}-{forge_version}-{mc_version_full}/"
-                 file_name = f"forge-{mc_version}-{forge_version}-{mc_version_full}-installer.jar"
+                # e.g. 1.10-12.18.0.2000 -> forge-1.10-12.18.0.2000-1.10.0-installer.jar
+                if mc_version_parts == [1, 7, 2]:
+                    mc_version_full = "mc172"
+                else:
+                    mc_version_full = mc_version if len(mc_version_parts) == 3 else f"{mc_version}.0"
+                base_url = f"https://maven.minecraftforge.net/net/minecraftforge/forge/{mc_version}-{forge_version}-{mc_version_full}/"
+                file_name = f"forge-{mc_version}-{forge_version}-{mc_version_full}-installer.jar"
             else:
-                 # e.g. 1.20.1-47.4.13 -> forge-1.20.1-47.4.13-installer.jar
-                 base_url = f"https://maven.minecraftforge.net/net/minecraftforge/forge/{mc_version}-{forge_version}/"
-                 file_name = f"forge-{mc_version}-{forge_version}-installer.jar"
+                # e.g. 1.20.1-47.4.13 -> forge-1.20.1-47.4.13-installer.jar
+                base_url = f"https://maven.minecraftforge.net/net/minecraftforge/forge/{mc_version}-{forge_version}/"
+                file_name = f"forge-{mc_version}-{forge_version}-installer.jar"
 
             installer_url = f"{base_url}{file_name}"
-            
+
             cleanup = [file_name]
-            
+
             is_modern_cleanup = False
-            if mc_version_parts[0] > 1: 
+            if mc_version_parts[0] > 1:
                 is_modern_cleanup = True
             elif mc_version_parts[0] == 1 and mc_version_parts[1] >= 17:
                 is_modern_cleanup = True
-            
+
             if is_modern_cleanup:
                 cleanup.extend([
                     "user_jvm_args.txt",
@@ -596,12 +610,12 @@ Updated download URL or build information for this version.
 
         existing_versions = self.get_existing_versions('neoforge')
         changes = []
-        
+
         versioning = root.find('versioning')
         if versioning is None:
             logging.warning("Could not find versioning tag in NeoForge metadata")
             return []
-            
+
         versions_tag = versioning.find('versions')
         if versions_tag is None:
             logging.warning("Could not find versions tag in NeoForge metadata")
@@ -616,28 +630,28 @@ Updated download URL or build information for this version.
         for neo_version in all_versions:
             if neo_version.endswith('-beta'):
                 continue
-            
+
             try:
                 parts = [int(p) for p in neo_version.split('.')]
             except ValueError:
                 logging.warning(f"Skipping unparseable NeoForge version: {neo_version}")
                 continue
-            
+
             major = parts[0]
             minor = parts[1]
             patch = parts[2] if len(parts) > 2 else 0
-            
+
             mc_version = None
-            if major >= 20: 
+            if major >= 20:
                 mc_major = 1
                 mc_minor = major
                 mc_patch = minor
-                
+
                 if mc_patch == 0:
                     mc_version = f"{mc_major}.{mc_minor}"
                 else:
                     mc_version = f"{mc_major}.{mc_minor}.{mc_patch}"
-            
+
             if not mc_version:
                 logging.warning(f"Skipping unknown NeoForge version format: {neo_version}")
                 continue
@@ -649,7 +663,7 @@ Updated download URL or build information for this version.
                 try:
                     curr_parts = [int(p) for p in current_latest.split('.')]
                     new_parts = [int(p) for p in neo_version.split('.')]
-                    
+
                     if new_parts > curr_parts:
                         latest_versions[mc_version] = neo_version
                 except ValueError:
@@ -657,7 +671,7 @@ Updated download URL or build information for this version.
 
         for mc_version, neo_version in latest_versions.items():
             installer_url = f"https://maven.neoforged.net/releases/net/neoforged/neoforge/{neo_version}/neoforge-{neo_version}-installer.jar"
-            
+
             entry = {
                 "version": mc_version,
                 "source": "INSTALLER",
@@ -737,7 +751,7 @@ Updated download URL or build information for this version.
         for server_type, version, is_new, entry, display_version in changes:
             action = "NEW" if is_new else "UPDATE"
             logging.info(f"[{action}] Processing {server_type} {version}...")
-            
+
             check_url = entry.get('server_url') or entry.get('installer_url')
             if check_url:
                 logging.info(f"Verifying URL: {check_url}")
