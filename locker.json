@@ -7261,6 +7261,26 @@
                     "run.bat",
                     "run.sh"
                 ]
+            },
+            {
+                "version": "26.1",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.minecraftforge.net/net/minecraftforge/forge/26.1-62.0.9/forge-26.1-62.0.9-installer.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "--installServer"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "forge-26.1-62.0.9-installer.jar",
+                    "user_jvm_args.txt",
+                    "run.bat",
+                    "run.sh"
+                ]
             }
         ],
         "neoforge": [
