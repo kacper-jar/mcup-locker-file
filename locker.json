@@ -5775,7 +5775,7 @@
             {
                 "version": "1.16.3",
                 "source": "INSTALLER",
-                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.13.1/quilt-installer-0.13.1.jar",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.14.1/quilt-installer-0.14.1.jar",
                 "installer_args": [
                     "java",
                     "-jar",
@@ -5790,7 +5790,7 @@
                 "supports_mods": true,
                 "configs": [],
                 "cleanup": [
-                    "quilt-installer-0.13.1.jar"
+                    "quilt-installer-0.14.1.jar"
                 ]
             },
             {
