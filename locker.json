@@ -855,6 +855,15 @@
                 "supports_mods": false,
                 "configs": [],
                 "cleanup": []
+            },
+            {
+                "version": "26.2",
+                "source": "DOWNLOAD",
+                "server_url": "https://piston-data.mojang.com/v1/objects/823e2250d24b3ddac457a60c92a6a941943fcd6a/server.jar",
+                "supports_plugins": false,
+                "supports_mods": false,
+                "configs": [],
+                "cleanup": []
             }
         ],
         "bukkit": [
