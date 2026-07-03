@@ -6506,6 +6506,27 @@
                 "cleanup": [
                     "quilt-installer-0.13.1.jar"
                 ]
+            },
+            {
+                "version": "26.2",
+                "source": "INSTALLER",
+                "installer_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.14.1/quilt-installer-0.14.1.jar",
+                "installer_args": [
+                    "java",
+                    "-jar",
+                    "%file_path",
+                    "install",
+                    "server",
+                    "%version",
+                    "--download-server",
+                    "--install-dir=./"
+                ],
+                "supports_plugins": false,
+                "supports_mods": true,
+                "configs": [],
+                "cleanup": [
+                    "quilt-installer-0.14.1.jar"
+                ]
             }
         ],
         "forge": [
