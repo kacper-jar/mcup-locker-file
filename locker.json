@@ -4429,7 +4429,7 @@
             {
                 "version": "1.19.2",
                 "source": "DOWNLOAD",
-                "server_url": "https://api.papermc.io/v2/projects/paper/versions/1.19.2/builds/307/downloads/paper-1.19.2-307.jar",
+                "server_url": "https://fill-data.papermc.io/v1/objects/2eb5c7459ec94bcdc597ed711d549a3ab4b0fda13e412a0792a1a069b5903864/paper-1.19.2-307.jar",
                 "supports_plugins": true,
                 "supports_mods": false,
                 "configs": [
