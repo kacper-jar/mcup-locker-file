@@ -4037,7 +4037,7 @@
             {
                 "version": "1.7.10",
                 "source": "DOWNLOAD",
-                "server_url": "https://api.papermc.io/v2/projects/paper/versions/1.7.10/builds/2025/downloads/paper-1.7.10-2025.jar",
+                "server_url": "https://fill-data.papermc.io/v1/objects/33772078d92e9dbb027602da016524ef29af5b4c12eaddac1fe2465b01108185/paper-1.7.10-2025.jar",
                 "supports_plugins": true,
                 "supports_mods": false,
                 "configs": [
