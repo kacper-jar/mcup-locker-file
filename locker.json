@@ -4336,7 +4336,7 @@
             {
                 "version": "1.16.5",
                 "source": "DOWNLOAD",
-                "server_url": "https://api.papermc.io/v2/projects/paper/versions/1.16.5/builds/794/downloads/paper-1.16.5-794.jar",
+                "server_url": "https://fill-data.papermc.io/v1/objects/e67da4851d08cde378ab2b89be58849238c303351ed2482181a99c2c2b489276/paper-1.16.5-794.jar",
                 "supports_plugins": true,
                 "supports_mods": false,
                 "configs": [
