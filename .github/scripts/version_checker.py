@@ -283,7 +283,7 @@ Updated download URL or build information for this version.
     def check_paper(self) -> List[Tuple[str, str, bool, dict, Optional[str]]]:
         """Check for new PaperMC versions."""
         logging.info("Fetching version manifest from PaperMC...")
-        url = "https://api.papermc.io/v2/projects/paper"
+        url = "https://fill.papermc.io/v3/projects/paper"
         try:
             response = requests.get(url, timeout=15)
             response.raise_for_status()
@@ -295,7 +295,11 @@ Updated download URL or build information for this version.
         existing_versions = self.get_existing_versions('paper')
         changes = []
 
-        versions = data.get('versions', [])
+        versions_dict = data.get('versions', {})
+        versions = []
+        for version_list in versions_dict.values():
+            versions.extend(version_list)
+
         logging.info(f"Found {len(versions)} total versions from PaperMC")
         logging.info(f"Currently tracking {len(existing_versions)} versions in locker")
 
@@ -303,7 +307,7 @@ Updated download URL or build information for this version.
             if '-' in version:
                 continue
 
-            builds_url = f"https://api.papermc.io/v2/projects/paper/versions/{version}/builds"
+            builds_url = f"https://fill.papermc.io/v3/projects/paper/versions/{version}/builds"
             try:
                 build_resp = requests.get(builds_url, timeout=15)
                 build_resp.raise_for_status()
@@ -312,27 +316,31 @@ Updated download URL or build information for this version.
                 logging.error(f"Error fetching builds for {version}: {e}")
                 continue
 
-            builds = build_data.get('builds', [])
-            if not builds:
+            if not isinstance(build_data, list):
+                build_data = []
+
+            if not build_data:
                 logging.warning(f"{version} has no builds available")
                 continue
 
-            stable_builds = [b for b in builds if b.get('channel') == 'default']
+            stable_builds = [b for b in build_data if b.get('channel') == 'STABLE']
 
             if not stable_builds:
                 continue
 
-            latest_build = stable_builds[-1]
-            build_number = latest_build.get('build')
+            latest_build = max(stable_builds, key=lambda x: x.get('id', 0))
+            build_number = latest_build.get('id')
             downloads = latest_build.get('downloads', {})
-            app_download = downloads.get('application', {})
+            server_default = downloads.get('server:default', {})
 
-            if not app_download:
-                logging.warning(f"{version} build {build_number} has no application download")
+            if not server_default:
+                logging.warning(f"{version} build {build_number} has no server:default download")
                 continue
 
-            file_name = app_download.get('name')
-            server_url = f"https://api.papermc.io/v2/projects/paper/versions/{version}/builds/{build_number}/downloads/{file_name}"
+            server_url = server_default.get('url')
+            if not server_url:
+                logging.warning(f"{version} build {build_number} has no url in server:default")
+                continue
 
             configs = []
             try:
