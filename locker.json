@@ -4050,7 +4050,7 @@
             {
                 "version": "1.8.8",
                 "source": "DOWNLOAD",
-                "server_url": "https://api.papermc.io/v2/projects/paper/versions/1.8.8/builds/445/downloads/paper-1.8.8-445.jar",
+                "server_url": "https://fill-data.papermc.io/v1/objects/7ff6d2cec671ef0d95b3723b5c92890118fb882d73b7f8fa0a2cd31d97c55f86/paper-1.8.8-445.jar",
                 "supports_plugins": true,
                 "supports_mods": false,
                 "configs": [
