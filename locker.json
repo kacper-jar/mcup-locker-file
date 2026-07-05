@@ -4513,7 +4513,7 @@
             {
                 "version": "1.20.4",
                 "source": "DOWNLOAD",
-                "server_url": "https://api.papermc.io/v2/projects/paper/versions/1.20.4/builds/499/downloads/paper-1.20.4-499.jar",
+                "server_url": "https://fill-data.papermc.io/v1/objects/cabed3ae77cf55deba7c7d8722bc9cfd5e991201c211665f9265616d9fe5c77b/paper-1.20.4-499.jar",
                 "supports_plugins": true,
                 "supports_mods": false,
                 "configs": [
