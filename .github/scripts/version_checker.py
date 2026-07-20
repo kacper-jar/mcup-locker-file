@@ -106,7 +106,7 @@ class VersionChecker:
                         title == target_start_add or title.startswith(f"{target_start_add} ")):
                     if exclude_title and title == exclude_title:
                         continue
-                    
+
                     pr_number = pr.get("number")
                     logging.info(f"Closing outdated PR #{pr_number}: {title}")
 
@@ -551,7 +551,9 @@ Updated download URL or build information for this version.
                     f"Skipping Forge for MC {mc_version} (too old - not supported by mcup / no installer download)")
                 continue
 
-            is_legacy_url = ([1, 7, 10] <= mc_version_parts <= [1, 10, 0] and mc_version_parts not in [[1, 8], [1, 8,8]]) or mc_version_parts == [1, 7, 2]
+            is_legacy_url = ([1, 7, 10] <= mc_version_parts <= [1, 10, 0] and mc_version_parts not in [[1, 8], [1, 8,
+                                                                                                                8]]) or mc_version_parts == [
+                                1, 7, 2]
 
             if is_legacy_url:
                 # e.g. 1.10-12.18.0.2000 -> forge-1.10-12.18.0.2000-1.10.0-installer.jar
@@ -654,7 +656,16 @@ Updated download URL or build information for this version.
             patch = parts[2] if len(parts) > 2 else 0
 
             mc_version = None
-            if major >= 20:
+            if major >= 26:
+                mc_major = major
+                mc_minor = minor
+                mc_patch = patch
+
+                if mc_patch == 0:
+                    mc_version = f"{mc_major}.{mc_minor}"
+                else:
+                    mc_version = f"{mc_major}.{mc_minor}.{mc_patch}"
+            elif major >= 20:
                 mc_major = 1
                 mc_minor = major
                 mc_patch = minor
