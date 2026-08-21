@@ -54,33 +54,58 @@ class VersionChecker:
             logging.error(f"Error: {e.stderr}")
             return False
 
-    def has_matching_open_pr(self, title: str, current_url: str) -> bool:
-        """Return True if there is already an open PR with the exact title and body containing the url."""
+    def _search_open_prs(self, search_title: str) -> list:
+        """
+        Search for open PRs matching a title using GitHub's search API.
+
+        Returns a list of matching PR dicts.
+        """
         if not self.repo:
-            return False
+            return []
 
         headers = {"Accept": "application/vnd.github+json"}
         if self.github_token:
             headers["Authorization"] = f"token {self.github_token}"
 
-        url = f"https://api.github.com/repos/{self.repo}/pulls?state=open&per_page=100"
+        query = f'repo:{self.repo} is:pr is:open in:title "{search_title}"'
+        all_results = []
+        page = 1
+
         try:
-            resp = requests.get(url, headers=headers, timeout=15)
-            resp.raise_for_status()
-            for pr in resp.json():
-                if pr.get("title") == title:
-                    body = pr.get("body", "")
-                    if current_url and current_url in body:
-                        return True
-                    elif not current_url:
-                        return True
+            while True:
+                url = f"https://api.github.com/search/issues?q={requests.utils.quote(query)}&per_page=100&page={page}"
+                resp = requests.get(url, headers=headers, timeout=30)
+                resp.raise_for_status()
+                data = resp.json()
+                items = data.get("items", [])
+                all_results.extend(items)
+
+                if len(items) < 100 or len(all_results) >= data.get("total_count", 0):
+                    break
+                page += 1
         except Exception as e:
-            logging.warning(f"Failed to check existing PRs: {e}")
+            logging.warning(f"Failed to search PRs for '{search_title}': {e}")
+
+        return all_results
+
+    def has_matching_open_pr(self, title: str, current_url: str) -> bool:
+        """Return True if there is already an open PR with the exact title and body containing the url."""
+        results = self._search_open_prs(title)
+
+        for pr in results:
+            if pr.get("title") == title:
+                body = pr.get("body", "")
+                if current_url and current_url in body:
+                    return True
+                elif not current_url:
+                    return True
+
         return False
 
     def close_outdated_pr(self, server_type: str, version: str, exclude_title: Optional[str] = None) -> str:
         """
         Close any existing open PR for the same server_type and version.
+        Also deletes the remote branch associated with each closed PR.
         Returns a message string to append to the new PR body if one was closed.
         """
         if not self.repo:
@@ -90,33 +115,60 @@ class VersionChecker:
         if self.github_token:
             headers["Authorization"] = f"token {self.github_token}"
 
-        url = f"https://api.github.com/repos/{self.repo}/pulls?state=open&per_page=100"
+        target_start_update = f"Update {server_type.capitalize()} {version}"
+        target_start_add = f"Add {server_type.capitalize()} {version}"
         closed_pr_msg = ""
 
-        try:
-            resp = requests.get(url, headers=headers, timeout=15)
-            resp.raise_for_status()
+        candidates = []
+        for search_term in [target_start_update, target_start_add]:
+            candidates.extend(self._search_open_prs(search_term))
 
-            target_start_update = f"Update {server_type.capitalize()} {version}"
-            target_start_add = f"Add {server_type.capitalize()} {version}"
+        seen_numbers = set()
+        for pr in candidates:
+            title = pr.get("title", "")
+            pr_number = pr.get("number")
 
-            for pr in resp.json():
-                title = pr.get("title", "")
-                if (title == target_start_update or title.startswith(f"{target_start_update} ") or
-                        title == target_start_add or title.startswith(f"{target_start_add} ")):
-                    if exclude_title and title == exclude_title:
-                        continue
+            if pr_number in seen_numbers:
+                continue
+            seen_numbers.add(pr_number)
 
-                    pr_number = pr.get("number")
-                    logging.info(f"Closing outdated PR #{pr_number}: {title}")
+            if not (title == target_start_update or title.startswith(f"{target_start_update} ") or
+                    title == target_start_add or title.startswith(f"{target_start_add} ")):
+                continue
 
-                    close_url = f"https://api.github.com/repos/{self.repo}/pulls/{pr_number}"
-                    requests.patch(close_url, headers=headers, json={"state": "closed"}, timeout=15)
+            if exclude_title and title == exclude_title:
+                continue
 
-                    closed_pr_msg += f"\nCloses #{pr_number}"
+            logging.info(f"Closing outdated PR #{pr_number}: {title}")
 
-        except Exception as e:
-            logging.warning(f"Failed to close outdated PRs: {e}")
+            try:
+                close_url = f"https://api.github.com/repos/{self.repo}/pulls/{pr_number}"
+                requests.patch(close_url, headers=headers, json={"state": "closed"}, timeout=15)
+                closed_pr_msg += f"\nCloses #{pr_number}"
+
+                pr_head = pr.get("pull_request", {}).get("url")
+                if pr_head:
+                    try:
+                        pr_detail = requests.get(pr_head, headers=headers, timeout=15).json()
+                        branch_ref = pr_detail.get("head", {}).get("ref")
+                    except Exception:
+                        branch_ref = None
+                else:
+                    branch_ref = None
+
+                if branch_ref and branch_ref != "main":
+                    ref_url = f"https://api.github.com/repos/{self.repo}/git/refs/heads/{branch_ref}"
+                    try:
+                        del_resp = requests.delete(ref_url, headers=headers, timeout=15)
+                        if del_resp.status_code in (204, 422):
+                            logging.info(f"Deleted remote branch: {branch_ref}")
+                        else:
+                            logging.warning(f"Failed to delete branch {branch_ref}: HTTP {del_resp.status_code}")
+                    except Exception as e:
+                        logging.warning(f"Failed to delete branch {branch_ref}: {e}")
+
+            except Exception as e:
+                logging.warning(f"Failed to close PR #{pr_number}: {e}")
 
         return closed_pr_msg
 
