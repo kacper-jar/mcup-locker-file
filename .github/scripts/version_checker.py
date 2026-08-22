@@ -27,6 +27,7 @@ class VersionChecker:
 
         self.github_token = os.environ.get('GITHUB_TOKEN')
         self.repo = os.environ.get('GITHUB_REPOSITORY', '')
+        self._cached_open_prs: Optional[List[dict]] = None
 
     def load_locker(self) -> dict:
         """Load the current locker file."""
@@ -54,52 +55,53 @@ class VersionChecker:
             logging.error(f"Error: {e.stderr}")
             return False
 
-    def _search_open_prs(self, search_title: str) -> list:
-        """
-        Search for open PRs matching a title using GitHub's search API.
+    def _fetch_all_open_prs(self) -> List[dict]:
+        if self._cached_open_prs is not None:
+            return self._cached_open_prs
 
-        Returns a list of matching PR dicts.
-        """
         if not self.repo:
-            return []
+            self._cached_open_prs = []
+            return self._cached_open_prs
 
         headers = {"Accept": "application/vnd.github+json"}
         if self.github_token:
             headers["Authorization"] = f"token {self.github_token}"
 
-        query = f'repo:{self.repo} is:pr is:open in:title "{search_title}"'
-        all_results = []
+        all_prs = []
         page = 1
 
         try:
             while True:
-                url = f"https://api.github.com/search/issues?q={requests.utils.quote(query)}&per_page=100&page={page}"
+                url = f"https://api.github.com/repos/{self.repo}/pulls?state=open&per_page=100&page={page}"
                 resp = requests.get(url, headers=headers, timeout=30)
                 resp.raise_for_status()
-                data = resp.json()
-                items = data.get("items", [])
-                all_results.extend(items)
-
-                if len(items) < 100 or len(all_results) >= data.get("total_count", 0):
+                prs = resp.json()
+                if not prs:
+                    break
+                all_prs.extend(prs)
+                if len(prs) < 100:
                     break
                 page += 1
         except Exception as e:
-            logging.warning(f"Failed to search PRs for '{search_title}': {e}")
+            logging.warning(f"Failed to fetch open PRs (page {page}): {e}")
 
-        return all_results
+        logging.info(f"Cached {len(all_prs)} open PRs for dedup checks")
+        self._cached_open_prs = all_prs
+        return self._cached_open_prs
+
+    def _invalidate_pr_cache(self):
+        """Invalidate the cached PR list (call after creating/closing PRs)."""
+        self._cached_open_prs = None
 
     def has_matching_open_pr(self, title: str, current_url: str) -> bool:
         """Return True if there is already an open PR with the exact title and body containing the url."""
-        results = self._search_open_prs(title)
-
-        for pr in results:
+        for pr in self._fetch_all_open_prs():
             if pr.get("title") == title:
-                body = pr.get("body", "")
+                body = pr.get("body", "") or ""
                 if current_url and current_url in body:
                     return True
                 elif not current_url:
                     return True
-
         return False
 
     def close_outdated_pr(self, server_type: str, version: str, exclude_title: Optional[str] = None) -> str:
@@ -119,18 +121,8 @@ class VersionChecker:
         target_start_add = f"Add {server_type.capitalize()} {version}"
         closed_pr_msg = ""
 
-        candidates = []
-        for search_term in [target_start_update, target_start_add]:
-            candidates.extend(self._search_open_prs(search_term))
-
-        seen_numbers = set()
-        for pr in candidates:
+        for pr in self._fetch_all_open_prs():
             title = pr.get("title", "")
-            pr_number = pr.get("number")
-
-            if pr_number in seen_numbers:
-                continue
-            seen_numbers.add(pr_number)
 
             if not (title == target_start_update or title.startswith(f"{target_start_update} ") or
                     title == target_start_add or title.startswith(f"{target_start_add} ")):
@@ -139,6 +131,7 @@ class VersionChecker:
             if exclude_title and title == exclude_title:
                 continue
 
+            pr_number = pr.get("number")
             logging.info(f"Closing outdated PR #{pr_number}: {title}")
 
             try:
@@ -146,16 +139,7 @@ class VersionChecker:
                 requests.patch(close_url, headers=headers, json={"state": "closed"}, timeout=15)
                 closed_pr_msg += f"\nCloses #{pr_number}"
 
-                pr_head = pr.get("pull_request", {}).get("url")
-                if pr_head:
-                    try:
-                        pr_detail = requests.get(pr_head, headers=headers, timeout=15).json()
-                        branch_ref = pr_detail.get("head", {}).get("ref")
-                    except Exception:
-                        branch_ref = None
-                else:
-                    branch_ref = None
-
+                branch_ref = pr.get("head", {}).get("ref")
                 if branch_ref and branch_ref != "main":
                     ref_url = f"https://api.github.com/repos/{self.repo}/git/refs/heads/{branch_ref}"
                     try:
@@ -169,6 +153,9 @@ class VersionChecker:
 
             except Exception as e:
                 logging.warning(f"Failed to close PR #{pr_number}: {e}")
+
+        if closed_pr_msg:
+            self._invalidate_pr_cache()
 
         return closed_pr_msg
 
@@ -282,6 +269,7 @@ Updated download URL or build information for this version.
 
         if self.run_command(pr_command):
             logging.info(f"Created PR: {pr_title}")
+            self._invalidate_pr_cache()
         else:
             logging.error(f"Failed to create PR for {server_type} {version}")
 
@@ -822,6 +810,8 @@ Updated download URL or build information for this version.
             return
 
         logging.info(f"Found {len(changes)} change(s)")
+
+        self._fetch_all_open_prs()
 
         for server_type, version, is_new, entry, display_version in changes:
             action = "NEW" if is_new else "UPDATE"
