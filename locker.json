@@ -4663,6 +4663,19 @@
                     "paper-world-defaults"
                 ],
                 "cleanup": []
+            },
+            {
+                "version": "26.3",
+                "source": "DOWNLOAD",
+                "server_url": "https://fill-data.papermc.io/v1/objects/4208a692538104ec88699c0e078b2b89842920a10472ebb37e72cdda27c0d80e/paper-26.3-206.jar",
+                "supports_plugins": true,
+                "supports_mods": false,
+                "configs": [
+                    "bukkit",
+                    "spigot",
+                    "paper"
+                ],
+                "cleanup": []
             }
         ],
         "fabric": [
